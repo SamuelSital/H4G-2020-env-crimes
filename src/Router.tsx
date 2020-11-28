@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import Discussion from "./discussion";
-import App from "./App";
+import LandingPage from "./landing-page/LandingPage";
 
 const Router = () => (
   <BrowserRouter>
@@ -44,8 +44,8 @@ const Router = () => (
 
 const MapView = () => <p>Placeholder</p>
 const Home = () => <div>
-  
-  <App />
+
+  <LandingPage />
   [Placeholder] <Link to="/anomaly/test">Go to dummy anomaly</Link>
 </div>
 

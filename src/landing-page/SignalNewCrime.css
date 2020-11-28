@@ -1,0 +1,28 @@
+.signal-crime-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  color: #EF7290;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+.signal-crime-button:hover {
+  background-color:hsla(340, 82%, 81%, 0.2);
+}
+
+.signal-crime-icon {
+  margin-left: 5px;
+  background-color: #EF7290;
+  width: 40px;
+  height: 40px;
+  border-radius: 500px;
+  box-shadow: 0 5px 20px -2px hsla(346, 80%, 79%, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
