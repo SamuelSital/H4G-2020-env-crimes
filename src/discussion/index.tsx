@@ -1,75 +1,72 @@
-import React from "react";
-import { Box, Card, Flex } from "rebass";
-import styled from "styled-components";
-import mockData, { CommentWithCreator } from "./mock-data";
+// import React from "react";
+// import { Box, Card, Flex } from "rebass";
+// import styled from "styled-components";
+// import mockData, { CommentWithCreator } from "./mock-data";
+import './header.css';
+import './anomaly.css';
+import BackButtonIcon from '../icons/backbutton.svg';
+import ShareIcon from '../icons/share.svg';
+import WarningIcon from '../icons/warning.svg';
+import { useHistory } from 'react-router-dom';
 
-const ThreadHeader = styled(Card)``;
+// const photoSrc = ({ name, picture }: { name: string; picture?: string }) => picture || `https://eu.ui-avatars.com/api/?name=${name}&background=random`
 
-const ProfilePhoto = styled.img`
-  width: 40px;
-`;
+const Header = () => {
+  const history = useHistory();
 
-const Tag = styled(Box) <{ $color: string }>`
-  padding: 12px;
-  margin: 8px;
-  background-color: ${(x) => x.$color};
-`;
-
-const photoSrc = ({ name, picture }: { name: string; picture?: string }) => picture || `https://eu.ui-avatars.com/api/?name=${name}&background=random`
-
-
-const CommentThread = ({ comment }: { comment: CommentWithCreator }) => (
-  <Flex width={1} flexDirection="column">
-    <Flex width={1} flexDirection="row">
-      <Box width={1 / 5}>
-        <ProfilePhoto
-          src={photoSrc(comment.creator)}
-          alt={comment.creator.name}
-        />
-      </Box>
-      <Box width={4 / 5}>{comment.message}</Box>
-    </Flex>
-
-    {comment.comments &&
-      comment.comments.map((c) => (
-        <Box width={1} ml="1em">
-          <CommentThread comment={c} />
-        </Box>
-      ))}
-  </Flex>
-);
-
-const Discussion = () => {
   return (
-    <div>
-      {mockData.map((post) => (
-        <Flex flexDirection="column">
-          <ThreadHeader>
-            <Flex>
-              <Box width={1 / 5}>
-                <ProfilePhoto
-                  src={photoSrc(post.creator)}
-                  alt={post.creator.name}
-                />
-              </Box>
-              <Box width={4 / 5}>{post.title}</Box>
-            </Flex>
-            <Flex justifyContent="space-between">
-              <Tag $color="red">{post.anomalyType}</Tag>
-              <Tag $color="yellow">{post.location.street}</Tag>
-              <Tag $color="blue">{post.created.toISOString().split('T')[0]}</Tag>
-            </Flex>
-          </ThreadHeader>
-
-          {post.comments.map((c) => (
-            <CommentThread comment={c} />
-          ))}
-          {!post.comments && <p>No comments left as of yet</p>}
-
-        </Flex>
-      ))}
+    <div className="header">
+      <img onClick={() => history.goBack()} src={BackButtonIcon} alt="" />
+      <span className="header__title">Community Thread</span>
+      <div className="c-share-button">
+        <img src={ShareIcon} alt="" />
+      </div>
     </div>
   );
 };
 
-export default Discussion;
+const Anomaly = () => {
+  return (
+    <div className="anomaly">
+      <div className="anom-icon">
+        <img src={WarningIcon} alt="" />
+      </div>
+      <div className="anom-right">
+        <div className="anom-description">
+          Anomaly in Rijksweg
+        </div>
+        <div className="anom-tags">
+          <div className="anom-tag">tag1</div>
+          <div className="anom-tag">tag2</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Thread = () => {
+  return (
+    <div className="thread">
+      <div className="thread-grid">
+        <div className="post-icon">
+
+        </div>
+        <div className="post-message">
+
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const CommunityThread = () => {
+  return (
+    <div className="container">
+      <Header />
+      <Anomaly />
+      <Thread />
+    </div>
+  );
+};
+
+export default CommunityThread;

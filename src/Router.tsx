@@ -35,7 +35,7 @@ const Router = () => (
           <Discussion />
         </Route>
         <Route path="/">
-          <Home />
+          <LandingPage />
         </Route>
       </Switch>
     </div>
@@ -43,10 +43,5 @@ const Router = () => (
 );
 
 const MapView = () => <p>Placeholder</p>
-const Home = () => <div>
-
-  <LandingPage />
-  [Placeholder] <Link to="/anomaly/test">Go to dummy anomaly</Link>
-</div>
 
 export default Router;
