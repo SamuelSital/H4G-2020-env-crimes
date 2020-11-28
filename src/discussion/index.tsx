@@ -1,13 +1,13 @@
 // import React from "react";
 // import { Box, Card, Flex } from "rebass";
 // import styled from "styled-components";
-import mockData, { IComment, IPost } from "./mock-data";
+import { IComment, IPost, PostData } from "./mock-data";
 import './header.css';
 import './anomaly.css';
 import './thread.css';
 import './input.css';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import SendIcon from '../icons/send.svg';
 import AttachmentIcon from '../icons/attachment.svg';
@@ -17,8 +17,9 @@ import BackButtonIcon from '../icons/backbutton.svg';
 import ShareIcon from '../icons/share.svg';
 import UserIcon from '../icons/user.svg';
 import WarningIcon from '../icons/warning.svg';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import styled from "styled-components";
+import { fetchDiscussionData } from "./api-adapter";
 
 // const photoSrc = ({ name, picture }: { name: string; picture?: string }) => picture || `https://eu.ui-avatars.com/api/?name=${name}&background=random`
 
@@ -47,7 +48,7 @@ const Anomaly = ({ post }: { post: IPost }) => {
           {post.title}
         </div>
         <div className="anom-tags">
-          {post.tags.map(tag =>
+          {post.tags?.map(tag =>
             <div key={tag} className="anom-tag">{tag}</div>
           )}
         </div>
@@ -67,7 +68,7 @@ const Thread = ({ comments }: { comments: IComment[] }) => {
             </div>
             {!comment.attachments ? (
               <div className="post-message">
-                {comment.message}
+                {comment.text}
               </div>
             ) :
               (
@@ -79,6 +80,7 @@ const Thread = ({ comments }: { comments: IComment[] }) => {
               )}
           </div>
 
+{/* TODO: Nested comments.. I had that working at some poing?! */}
           {comment.comments && comment.comments.map(subComment => (
             <div className="thread-grid-comments">
               <div />
@@ -86,7 +88,7 @@ const Thread = ({ comments }: { comments: IComment[] }) => {
                 <img src={UserIcon} alt="" />
               </div>
               <div className="post-message">
-                {subComment.message}
+                {subComment.text}
               </div>
             </div>
           ))}
@@ -111,11 +113,26 @@ const Container = styled.div`
 `;
 
 const CommunityThread = () => {
+  const { id } = useParams<{ id: string }>();
+
+  const [data, setData] = useState<PostData>();
+  const [error, setError] = useState<Error>();
+  useEffect(() => {
+    fetchDiscussionData(id)
+    .then(setData)
+    .catch(setError);
+  }, []);
+
   return (
     <Container>
       <Header />
-      <Anomaly post={mockData[0]} />
-      <Thread comments={mockData[0].comments as IComment[]} />
+      {data ? <>
+        <Anomaly post={data} />
+        <Thread comments={data.comments as IComment[]} />
+      </>
+      : error
+        ? <pre>Something went wrong :( <br /> {error.toString() || { unknown: true }}</pre>
+        : <p>Loading...</p>}
       <Input />
     </Container >
   );
