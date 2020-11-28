@@ -85,14 +85,14 @@ const Card = ({ text, time, comments, location }: Notification) => (
 //   </Wrapper>
 // );
 
-interface Education {
+interface EducationType {
   text: string;
   time: string;
 }
 
 
 
-const Education = ({ text, time }: Education) => (
+const Education = ({ text, time }: EducationType) => (
   <div className="h-card">
     <div className="scw-overlay" />
     <div className="h-card__text">{text}</div>
@@ -102,7 +102,7 @@ const Education = ({ text, time }: Education) => (
 
 const App = (props: any) => {
   const [items, setItems] = useState<Notification[]>([])
-  const [eductionItems, setEducationItems] = useState<Education[]>([])
+  const [eductionItems, setEducationItems] = useState<EducationType[]>([])
 
   useEffect(() => {
     setItems([
