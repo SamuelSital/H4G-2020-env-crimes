@@ -4,7 +4,7 @@ import WarningIcon from './icons/warning.svg';
 import LocationIcon from './icons/location.svg';
 import TimeIcon from './icons/time.svg';
 
-import { Box, Flex } from "rebass";
+// import { Box, Flex } from "rebass";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -39,19 +39,21 @@ const Wrapper = styled.div`
 
 const Card = ({ text, time }: { text: string; time: string; }) => (
   <div className="card">
-    <div className="card__location">
-      <img alt="x" src={LocationIcon} />
-      Rotterdam
-    </div>
     <div className="card__notification">
       <img alt="x" src={WarningIcon} />
       <span>{text}</span>
     </div>
-    <div className="card__actions">
-      <div className="card__time">
+    <div className="card__info">
+      <div className="pill">
+        <img alt="x" src={LocationIcon} />
+        Rotterdam - 10 KM
+      </div>
+      <div className="pill">
         <img alt="x" src={TimeIcon} />
         <span>{time}</span>
       </div>
+    </div>
+    <div className="card__actions">
       <div className="card__buttons">
         <div className="card__button card__button1">
           3 comments

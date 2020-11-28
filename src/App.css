@@ -23,18 +23,26 @@
   padding: 1em;
 }
 
-.card__location {
+.card__info {
   display: flex;
   flex-direction: row;
   align-items: center;
- color: #ADB2BE;
- font-size: 0.9em;
- margin-bottom: 8px;
+  color: #ADB2BE;
+  font-size: 0.9em;
+  margin-bottom: 8px;
   font-size: 0.6em;
+  margin-top: 0.8em;
 }
 
-.card__location img {
+.pill {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-right: 13px;
+}
+
+.pill img {
+  margin-right: 3px;
 }
 
 .card__notification {
@@ -50,24 +58,12 @@
   margin-right: 8px;
 }
 
-.card__time {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: #ADB2BE;
-  font-size: 0.6em;
-}
-
-.card__time img {
-  margin-right: 4px;
-}
-
 .card__actions {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  padding-top: 1em;
+  justify-content: flex-end;
+  padding-top: 0.5em;
 }
 
 .card__buttons {
