@@ -59,8 +59,8 @@ const Anomaly = ({ post }: { post: IPost }) => {
 const Thread = ({ comments }: { comments: IComment[] }) => {
   return (
     <div className="thread">
-      {comments.map(comment => (
-        <div>
+      {comments.map((comment, i) => (
+        <div key={`comment-${i}`}>
           <div className="thread-grid">
             <div className="post-icon">
               <img src={UserIcon} alt="" />
