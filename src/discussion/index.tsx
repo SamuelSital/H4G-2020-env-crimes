@@ -1,7 +1,7 @@
 // import React from "react";
 // import { Box, Card, Flex } from "rebass";
 // import styled from "styled-components";
-import mockData, { CommentWithCreator, IComment, IPost } from "./mock-data";
+import mockData, { IComment, IPost } from "./mock-data";
 import './header.css';
 import './anomaly.css';
 import './thread.css';

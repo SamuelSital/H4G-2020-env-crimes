@@ -3,7 +3,6 @@ import {
   BrowserRouter,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Discussion from "./discussion";
 import MapView from "./MapView";
