@@ -1,10 +1,23 @@
 import React from "react";
-import { ThemeProvider } from "emotion-theming";
+import { ThemeProvider } from "theme-ui";
 import theme from "@rebass/preset";
 
-import { Box, Card, Image, Heading, Text } from "rebass";
+import { Box, Card, Image, Heading, Text, Flex } from "rebass";
+import styled from "styled-components";
 
-const DemoComponent = ({ image, title, description }: any) => (
+const Wrapper = styled.div`
+  padding: 8px;
+`;
+
+const DemoComponent = ({
+  image,
+  title,
+  description,
+}: {
+  image?: string;
+  title: string;
+  description: string;
+}) => (
   <Box width={256}>
     <Card
       sx={{
@@ -22,10 +35,20 @@ const DemoComponent = ({ image, title, description }: any) => (
   </Box>
 );
 
+const DemoPage = (props: { children: React.ReactNode }) => (
+  <Wrapper>
+    <Flex>
+      <Box>{props.children}</Box>
+    </Flex>
+  </Wrapper>
+);
+
 const App = (props: any) => (
   <ThemeProvider theme={theme}>
     {/* {props.children} */}
-    <DemoComponent title="Hello world" description=":D" />
+    <DemoPage>
+      <DemoComponent title="Hello world" description=":D" />
+    </DemoPage>
   </ThemeProvider>
 );
 
