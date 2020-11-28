@@ -6,6 +6,9 @@ import styled from "styled-components";
 import Leaflet from 'leaflet';
 
 import AnomalyImage from './icons/anomaly.png';
+import { PostData } from "./discussion/mock-data";
+import { fetchPostOverview } from "./discussion/api-adapter";
+import { Link } from "react-router-dom";
 
 const anomalyIcon = Leaflet.icon({
   iconUrl: AnomalyImage,
@@ -43,7 +46,7 @@ function UserLocationMarker() {
 interface IAnomaly { title: string; position: [number, number] };
 interface ISensor { position: [number, number] };
 
-const anomalies: IAnomaly[] = [
+export const anomalies: IAnomaly[] = [
   {
     position: [52.3035676, 4.6844564],
     title: 'Increase in water conductivity'
@@ -61,8 +64,18 @@ export const sensors: ISensor[] = [];
 
 const defaultLocation: LatLng = new LatLng(51.505, -0.09);
 const MapView = () => {
-  const [location, setLocation] = useState(defaultLocation);
 
+
+  const [items, setItems] = useState<PostData[]>([])
+  const [error, setError] = useState<Error>();
+  useEffect(() => {
+    fetchPostOverview()
+    .then(setItems)
+    .catch(setError);
+  }, []);
+
+
+  const [location, setLocation] = useState(defaultLocation);
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((loc) => {
       setLocation(new LatLng(loc.coords.latitude, loc.coords.longitude));
@@ -75,6 +88,7 @@ const MapView = () => {
 
   return (
     <div ref={wrapper} >
+       {error && <pre>Something went wrong :( <br /> {error.toString() || { unknown: true }}</pre>}
       <StyledMapContainer
         // When location changes, rerender
         // key={location.toString()}
@@ -90,13 +104,17 @@ const MapView = () => {
 
         <UserLocationMarker />
 
-        {anomalies.map(a => (
+        {items.map(a => (
           <Marker
-            position={a.position}
-            key={a.position.toString()}
+            position={a.location.coordinates}
+            key={a.id}
             icon={anomalyIcon}
           >
-            <Popup>{a.title}</Popup>
+            <Popup>
+              <h2>{a.title}</h2>
+              <Link to={`/posts/${a.id}/data`}>Details</Link>,{' '}
+              <Link to={`/posts/${a.id}/dsicuss`}>Discuss</Link>
+            </Popup>
           </Marker>
         ))}
 
