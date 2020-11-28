@@ -4,12 +4,12 @@ import styled from "styled-components";
 import { fetchPostOverview } from "../discussion/api-adapter";
 import { PostData } from "../discussion/mock-data";
 import ErrorBoundary from "../ErrorBoundary";
-import ActionIcon from '../icons/action.svg';
 import AnalyticsIcon from '../icons/analytics.svg';
 import CommentsIcon from '../icons/comments.svg';
 import LocationIcon from '../icons/location.svg';
 import MapIcon from '../icons/map.svg';
 import NotificationIcon from '../icons/notification.svg';
+import UserNotificationIcon from '../icons/user-notification.svg';
 import TimeIcon from '../icons/time.svg';
 import WarningIcon from '../icons/warning.svg';
 import './LandingPage.css';
@@ -33,8 +33,8 @@ interface EducationType {
 const Card = ({ id, title, created, comments, location, creatorType }: PostData) => {
   return (
     <div className="card">
-      <div className="card__notification">
-        <img alt="x" src={WarningIcon} />
+      <div className={`card__notification ${creatorType === "user" && 'card_user_notification'}`}>
+        {creatorType === "sensor" ? <img alt="x" src={WarningIcon} /> : <img alt="" src={UserNotificationIcon} />}
         <span>{title}</span>
       </div>
       <div className="card__info">
@@ -52,17 +52,13 @@ const Card = ({ id, title, created, comments, location, creatorType }: PostData)
           {creatorType === 'sensor' && (
             <Link to={`/posts/${id}/data`} className="card__button card__button0">
               <img src={AnalyticsIcon} alt="" />
-              Sensor Analytics
+              Details
             </Link>
           )}
           <Link to={`/posts/${id}/discuss`} className="card__button card__button1">
             <img src={CommentsIcon} alt="" />
             {comments.length} comments
           </Link>
-          <div className="card__button card__button2" onClick={() => window.prompt('What seems to be the problem?')}>
-            <img src={ActionIcon} alt="" />
-            Take action
-          </div>
         </div>
       </div>
     </div>
@@ -87,6 +83,14 @@ const Posts = (props: any) => {
     .then(setItems)
     .catch(setError);
   }, []);
+    // setItems([
+    //   { id: 1, text: "Increase in air polution detected", time: "10 min ago", location: 'Rotterdam Nord 10KM', comments: 10, creatorType: 'sensor' },
+    //   { id: 7, text: "Saw something suspicious", time: "15:00", location: "Rotterdam", comments: 14, creatorType: "user" },
+    //   { id: 3, text: "Increase in air polution detected", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'sensor' },
+    //   { id: 4, text: "Increase in air polution detected", time: "14:29", location: 'Rotterdam 1KM', comments: 3, creatorType: 'sensor' },
+    //   { id: 5, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'user' },
+    //   { id: 6, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'user' },
+    // ]);
 
   useEffect(() => {
     setEducationItems([

@@ -102,11 +102,11 @@ const posts: IPost[] = [
       {
         creatorId: "3",
         created: new Date(),
-        text: "Volker wessels dumped a huge amount of granulite in to the sea which is toxic but the government doesn't care apparently. We need to start a revolution.",
+        text: "I agree! I have created an online petition for this incidence",
         comments: [
           {
             creatorId: "3",
-            text: "This is not relevant, but still true",
+            text: "Good job!",
             created: new Date(),
           },
         ],

@@ -82,7 +82,7 @@ const Thread = ({ comments }: { comments: IComment[] }) => {
 
 {/* TODO: Nested comments.. I had that working at some poing?! */}
           {comment.comments && comment.comments.map(subComment => (
-            <div className="thread-grid-comments">
+            <div className="thread-grid-comments" key={subComment.text}>
               <div />
               <div className="post-icon">
                 <img src={UserIcon} alt="" />
@@ -121,6 +121,7 @@ const CommunityThread = () => {
     fetchDiscussionData(id)
     .then(setData)
     .catch(setError);
+    // eslint-disable-next-line
   }, []);
 
   return (

@@ -142,6 +142,10 @@ a {
   font-size: 0.8em;
 }
 
+.card_user_notification {
+  color: hsla(220, 70%, 69%, 1);
+}
+
 
 .card__notification img {
   margin-right: 8px;
