@@ -1,12 +1,10 @@
 import React from "react";
-import { ThemeProvider } from "theme-ui";
-import theme from "@rebass/preset";
 import './App.css';
 import WarningIcon from './icons/warning.svg';
 import LocationIcon from './icons/location.svg';
 import TimeIcon from './icons/time.svg';
 
-import { Box, Image, Heading, Text, Flex } from "rebass";
+import { Box, Flex } from "rebass";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -42,16 +40,16 @@ const Wrapper = styled.div`
 const Card = ({ text, time }: { text: string; time: string; }) => (
   <div className="card">
     <div className="card__location">
-      <img src={LocationIcon} />
+      <img alt="x" src={LocationIcon} />
       Rotterdam
     </div>
     <div className="card__notification">
-      <img src={WarningIcon} />
+      <img alt="x" src={WarningIcon} />
       <span>{text}</span>
     </div>
     <div className="card__actions">
       <div className="card__time">
-        <img src={TimeIcon} />
+        <img alt="x" src={TimeIcon} />
         <span>{time}</span>
       </div>
       <div className="card__buttons">
@@ -66,13 +64,13 @@ const Card = ({ text, time }: { text: string; time: string; }) => (
   </div>
 )
 
-const DemoPage = (props: { children: React.ReactNode }) => (
-  <Wrapper>
-    <Flex>
-      <Box>{props.children}</Box>
-    </Flex>
-  </Wrapper>
-);
+// const DemoPage = (props: { children: React.ReactNode }) => (
+//   <Wrapper>
+//     <Flex>
+//       <Box>{props.children}</Box>
+//     </Flex>
+//   </Wrapper>
+// );
 
 const App = (props: any) => (
   <Wrapper>
