@@ -82,6 +82,7 @@ const Education = ({ text, time }: EducationType) => (
 const App = (props: any) => {
   const [items, setItems] = useState<Notification[]>([])
   const [eductionItems, setEducationItems] = useState<EducationType[]>([])
+  const history = useHistory();
 
   useEffect(() => {
     setItems([
@@ -120,7 +121,7 @@ const App = (props: any) => {
 
     <div className="header">
       <span className="title">Last alerts</span>
-      <div className="map-button">
+      <div className="map-button" onClick={() => history.push('/map')}>
         <img src={MapIcon} alt="" />
         <span>Map</span>
       </div>
