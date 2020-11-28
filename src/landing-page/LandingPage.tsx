@@ -7,7 +7,9 @@ import MapIcon from '../icons/map.svg';
 import CommentsIcon from '../icons/comments.svg';
 import ActionIcon from '../icons/action.svg';
 import NotificationIcon from '../icons/notification.svg';
-import { useHistory } from 'react-router-dom';
+import AnalyticsIcon from '../icons/analytics.svg';
+
+import { useHistory, Link } from 'react-router-dom';
 
 import SignalNewCrimeButton from './SignalNewCrime';
 
@@ -28,6 +30,7 @@ interface Notification {
   time: string;
   comments: number;
   location: string;
+  creatorType: 'sensor' | 'user';
 }
 
 interface EducationType {
@@ -37,11 +40,9 @@ interface EducationType {
 }
 
 
-const Card = ({ text, time, comments, location }: Notification) => {
-  const history = useHistory();
-
+const Card = ({ id, text, time, comments, location, creatorType }: Notification) => {
   return (
-    <div onClick={() => history.push('/anomaly/test')} className="card">
+    <div className="card">
       <div className="card__notification">
         <img alt="x" src={WarningIcon} />
         <span>{text}</span>
@@ -58,14 +59,20 @@ const Card = ({ text, time, comments, location }: Notification) => {
       </div>
       <div className="card__actions">
         <div className="card__buttons">
-          <div className="card__button card__button1">
+          {creatorType === 'sensor' && (
+            <Link to={`/posts/${id}/data`} className="card__button card__button0">
+              <img src={AnalyticsIcon} alt="" />
+              Sensor Analytics
+            </Link>
+          )}
+          <Link to={`/posts/${id}/discuss`} className="card__button card__button1">
             <img src={CommentsIcon} alt="" />
             {comments} comments
-        </div>
-          <div className="card__button card__button2">
+          </Link>
+          <div className="card__button card__button2" onClick={() => window.prompt('What seems to be the problem?')}>
             <img src={ActionIcon} alt="" />
-          Take action
-        </div>
+            Take action
+          </div>
         </div>
       </div>
     </div>
@@ -86,12 +93,12 @@ const App = (props: any) => {
 
   useEffect(() => {
     setItems([
-      { id: 1, text: "Increase in air polution detected", time: "10 min ago", location: 'Rotterdam Nord 10KM', comments: 10, },
-      { id: 2, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, },
-      { id: 3, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, },
-      { id: 4, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, },
-      { id: 5, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, },
-      { id: 6, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, },
+      { id: 1, text: "Increase in air polution detected", time: "10 min ago", location: 'Rotterdam Nord 10KM', comments: 10, creatorType: 'sensor' },
+      { id: 2, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'user' },
+      { id: 3, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'sensor' },
+      { id: 4, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'sensor' },
+      { id: 5, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'user' },
+      { id: 6, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'user' },
     ]);
 
     setEducationItems([
@@ -133,7 +140,7 @@ const App = (props: any) => {
 
     <div className="notifications-wrapper">
       {items.map(item => (
-        <Card key={item.id} id={item.id} text={item.text} time={item.time} location={item.location} comments={item.comments} />
+        <Card key={item.id} {...item} />
       ))}
     </div>
   </Wrapper>)

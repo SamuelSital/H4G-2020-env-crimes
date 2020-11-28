@@ -8,6 +8,7 @@ import BackButtonIcon from '../icons/backbutton.svg';
 import ShareIcon from '../icons/share.svg';
 import WarningIcon from '../icons/warning.svg';
 import { useHistory } from 'react-router-dom';
+import React from 'react';
 
 // const photoSrc = ({ name, picture }: { name: string; picture?: string }) => picture || `https://eu.ui-avatars.com/api/?name=${name}&background=random`
 

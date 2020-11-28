@@ -3,9 +3,18 @@ import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaf
 import { LatLng } from "leaflet";
 import styled from "styled-components";
 
-const StyledMarker = styled(Marker)`
-  filter: hue-rotate(120deg);
-`;
+import Leaflet from 'leaflet';
+
+import AnomalyImage from './icons/anomaly.png';
+
+const anomalyIcon = Leaflet.icon({
+  iconUrl: AnomalyImage,
+  iconRetinaUrl: AnomalyImage,
+  shadowUrl: 'https://unpkg.com/leaflet@1.5.1/dist/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+});
 
 const StyledMapContainer = styled(MapContainer) <{ $height: number }>`
   height: ${x => x.$height}px;
@@ -82,14 +91,13 @@ const MapView = () => {
         <UserLocationMarker />
 
         {anomalies.map(a => (
-          <StyledMarker
+          <Marker
             position={a.position}
-            css={{ filter: 'hue-rotate(120deg);' }}
             key={a.position.toString()}
-          // icon={}
+            icon={anomalyIcon}
           >
             <Popup>{a.title}</Popup>
-          </StyledMarker>
+          </Marker>
         ))}
 
       </StyledMapContainer>

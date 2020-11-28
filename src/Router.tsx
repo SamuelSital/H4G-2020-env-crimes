@@ -3,11 +3,11 @@ import {
   BrowserRouter,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Discussion from "./discussion";
 import MapView from "./MapView";
 import LandingPage from "./landing-page/LandingPage";
+import DataView from "./DataView";
 
 const Router = () => (
   <BrowserRouter>
@@ -19,7 +19,10 @@ const Router = () => (
         <Route path="/map">
           <MapView />
         </Route>
-        <Route path="/anomaly/:id">
+        <Route path="/posts/:id/data">
+          <DataView />
+        </Route>
+        <Route path="/posts/:id/discuss">
           <Discussion />
         </Route>
         <Route path="/">

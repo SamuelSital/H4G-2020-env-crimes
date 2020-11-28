@@ -14,6 +14,10 @@
   }
 }
 
+a {
+  text-decoration: none;
+}
+
 .scrolling-wrapper {
   display: flex;
   flex-wrap: nowrap;
@@ -172,6 +176,15 @@
 
 .card__button img {
   margin-right: 3px;
+}
+
+.card__button0 {
+  background: rgb(133, 140, 234);
+  box-shadow: 0px 2px 6px rgb(187, 196, 243);
+  margin-right: 4px;
+}
+.card__button0:hover {
+  box-shadow: 0px 2px 6px rgb(144, 142, 235);
 }
 
 .card__button1 {
