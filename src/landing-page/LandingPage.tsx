@@ -43,7 +43,7 @@ interface EducationType {
 const Card = ({ id, text, time, comments, location, creatorType }: Notification) => {
   return (
     <div className="card">
-      <div className="card__notification">
+      <div className={`card__notification ${creatorType == "user" && 'card_user_notification'}`}>
         {creatorType === "sensor" ? <img alt="x" src={WarningIcon} /> : <img alt="" src={UserNotificationIcon} />}
         <span>{text}</span>
       </div>
