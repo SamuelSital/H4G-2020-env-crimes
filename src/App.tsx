@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import './App.css';
 import WarningIcon from './icons/warning.svg';
 import LocationIcon from './icons/location.svg';
 import TimeIcon from './icons/time.svg';
+import MapIcon from './icons/map.svg';
+import CommentsIcon from './icons/comments.svg';
+import ActionIcon from './icons/action.svg';
 
-// import { Box, Flex } from "rebass";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -36,8 +38,15 @@ const Wrapper = styled.div`
 //   </Box>
 // );
 
+interface Notification {
+  text: string;
+  time: string;
+  comments: number;
+  location: string;
+}
 
-const Card = ({ text, time }: { text: string; time: string; }) => (
+
+const Card = ({ text, time, comments, location }: Notification) => (
   <div className="card">
     <div className="card__notification">
       <img alt="x" src={WarningIcon} />
@@ -56,9 +65,11 @@ const Card = ({ text, time }: { text: string; time: string; }) => (
     <div className="card__actions">
       <div className="card__buttons">
         <div className="card__button card__button1">
-          3 comments
+          <img src={CommentsIcon} alt="" />
+          {comments} comments
         </div>
         <div className="card__button card__button2">
+          <img src={ActionIcon} alt="" />
           Take action
         </div>
       </div>
@@ -74,13 +85,35 @@ const Card = ({ text, time }: { text: string; time: string; }) => (
 //   </Wrapper>
 // );
 
-const App = (props: any) => (
-  <Wrapper>
-    <div className="header">
+const App = (props: any) => {
+  const [items, setItems] = useState([
+    {
+      text: "Increase in air polution detected",
+      time: "10 min ago",
+      location: 'Rotterdam 10KM',
+      comments: 10,
+    },
+    {
+      text: "Nuclear expliosion detected in your backyard",
+      time: "18:34",
+      location: 'Rotterdam 10KM',
+      comments: 3,
+    },
+  ])
 
+  return (<Wrapper>
+    <div className="header">
+      <span className="title">Last alerts</span>
+
+      <div className="map-button">
+        <span>Go on the map</span>
+        <img src={MapIcon} alt="" />
+      </div>
     </div>
-    <Card text="Nuclear expliosion detected in your backyard" time="18:34" />
-  </Wrapper>
-);
+    {items.map(item => (
+      <Card text={item.text} time={item.time} location={item.location} comments={item.comments} />
+    ))}
+  </Wrapper>)
+};
 
 export default App;
