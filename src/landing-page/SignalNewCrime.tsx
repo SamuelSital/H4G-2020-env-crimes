@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PlusIcon from '../icons/plus.svg';
 import './SignalNewCrime.css';
 
