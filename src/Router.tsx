@@ -6,8 +6,8 @@ import {
   Link
 } from "react-router-dom";
 import Discussion from "./discussion";
-import App from "./App";
 import MapView from "./MapView";
+import LandingPage from "./landing-page/LandingPage";
 
 const Router = () => (
   <BrowserRouter>
@@ -31,10 +31,8 @@ const Router = () => (
 );
 
 const Home = () => <div>
-  
-  <App />
-  [Placeholder]
-  <Link to="/anomaly/test">Go to dummy anomaly</Link>
+  <LandingPage />
+  [Placeholder] <Link to="/anomaly/test">Go to dummy anomaly</Link>
   <br />
   <Link to="/map">Go to Map</Link>
 </div>
