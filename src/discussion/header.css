@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header__placeholder {
+  display: block;
+  width: 20px;
+}
+
+.c-share-button {
+  display: block;
+  padding: 5px 5px 0px 5px;
+  border-radius: 3px;
+  /* background-color: hsla(222, 12%, 91%, 1); */
+}

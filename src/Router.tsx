@@ -23,18 +23,11 @@ const Router = () => (
           <Discussion />
         </Route>
         <Route path="/">
-          <Home />
+          <LandingPage />
         </Route>
       </Switch>
     </div>
   </BrowserRouter>
 );
-
-const Home = () => <div>
-  <LandingPage />
-  [Placeholder] <Link to="/anomaly/test">Go to dummy anomaly</Link>
-  <br />
-  <Link to="/map">Go to Map</Link>
-</div>
 
 export default Router;

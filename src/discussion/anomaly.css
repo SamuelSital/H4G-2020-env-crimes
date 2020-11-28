@@ -1,0 +1,38 @@
+.anomaly {
+  background-color: white;
+  box-shadow: 0px 4px 9px rgba(181, 198, 214, 0.25);
+  border-radius: 8px;
+  padding: 1em;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+}
+
+.anom-icon {
+
+}
+
+.anom-right {
+  display: flex;
+  flex-direction: column;
+ margin-left: 8px;
+}
+
+.anom-description {
+ color: hsla(346, 80%, 69%, 1);
+ margin-bottom: 10px;
+}
+
+.anom-tags {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.7em;
+}
+
+.anom-tag {
+  background-color: hsla(346, 80%, 93%, 1);
+  color: hsla(346, 80%, 63%, 1);
+  border-radius: 100px;
+  padding: 3px 10px;
+  margin-right: 2px;
+}
