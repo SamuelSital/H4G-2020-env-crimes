@@ -14,6 +14,9 @@ import SignalNewCrimeButton from './SignalNewCrime';
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   max-height: 100vh;
   overflow: hidden;
   position: relative;
@@ -71,7 +74,6 @@ const Card = ({ text, time, comments, location }: Notification) => {
 
 const Education = ({ text, time }: EducationType) => (
   <div className="h-card">
-    <div className="scw-overlay" />
     <div className="h-card__text">{text}</div>
     <div className="h-card__time">{time}</div>
   </div>
@@ -104,14 +106,16 @@ const App = (props: any) => {
   return (<Wrapper>
     <SignalNewCrimeButton />
     <div className="gradient-overlay" />
-    <div className="header">
+    <div className="header header1">
       <span className="title">You are brilliant!</span>
     </div>
 
-    <div className="scrolling-wrapper">
-      {eductionItems.map(educationItem => (
-        <Education key={educationItem.id} id={educationItem.id} text={educationItem.text} time={educationItem.time} />
-      ))}
+    <div>
+      <div className="scrolling-wrapper">
+        {eductionItems.map(educationItem => (
+          <Education key={educationItem.id} id={educationItem.id} text={educationItem.text} time={educationItem.time} />
+        ))}
+      </div>
     </div>
 
     <div className="header">

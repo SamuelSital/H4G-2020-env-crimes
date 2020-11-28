@@ -64,6 +64,10 @@
   padding: 15px 0px;
 }
 
+.header1 {
+  margin-top: 10px;
+}
+
 .header .title {
   margin-right: auto;
 }
@@ -89,8 +93,9 @@
 }
 
 .notifications-wrapper {
-  /* position: relative; */
+  position: relative;
   overflow-y: scroll;
+  padding-bottom: 180px;
 }
 
 .card {
@@ -188,11 +193,12 @@
 }
 
 .gradient-overlay {
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 20vh;
   bottom: 0px;
   left: 0px;
   right: 0px;
-  background: linear-gradient(to top, white, hsla(220deg, 40%, 100%, 1), 70%, transparent);
+  z-index: 900;
+  background: linear-gradient(to top, white, hsla(220deg, 40%, 100%, 0));
 }
