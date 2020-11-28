@@ -1,0 +1,50 @@
+
+
+.thread-grid {
+  display: grid;
+  grid-template-columns: 45px 1fr;
+  margin-bottom: 8px;
+}
+
+.thread-grid-comments {
+  display: grid;
+  grid-template-columns: 45px 45px 1fr;
+  margin-bottom: 8px;
+}
+
+.post-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsla(222, 22%, 91%, 1);
+}
+
+.post-message {
+  font-size: 0.8em;
+  background-color: hsla(222, 82%, 100%, 1);
+  padding: 9px;
+  border-radius: 4px;
+}
+
+.post-attachment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 0.8em;
+  background-color: hsla(222, 32%, 100%, 1);
+  padding: 9px;
+  border-radius: 4px;
+  color: hsla(222, 62%, 60%, 1);
+}
+
+.download-icon {
+  display: block;
+  margin-left: auto;
+}
+
+.post-attachment img {
+  margin-right: 10px;
+}
