@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './App.css';
 import WarningIcon from './icons/warning.svg';
 import LocationIcon from './icons/location.svg';
@@ -86,20 +86,24 @@ const Card = ({ text, time, comments, location }: Notification) => (
 // );
 
 const App = (props: any) => {
-  const [items, setItems] = useState([
-    {
-      text: "Increase in air polution detected",
-      time: "10 min ago",
-      location: 'Rotterdam 10KM',
-      comments: 10,
-    },
-    {
-      text: "Nuclear expliosion detected in your backyard",
-      time: "18:34",
-      location: 'Rotterdam 10KM',
-      comments: 3,
-    },
-  ])
+  const [items, setItems] = useState<Notification[]>([])
+
+  useEffect(() => {
+    setItems([
+      {
+        text: "Increase in air polution detected",
+        time: "10 min ago",
+        location: 'Rotterdam 10KM',
+        comments: 10,
+      },
+      {
+        text: "Nuclear expliosion detected in your backyard",
+        time: "18:34",
+        location: 'Rotterdam 10KM',
+        comments: 3,
+      },
+    ]);
+  })
 
   return (<Wrapper>
     <div className="header">
