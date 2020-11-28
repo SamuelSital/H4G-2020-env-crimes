@@ -1,16 +1,16 @@
 type ID = string;
 
-interface IUser {
+export interface IUser {
   id: ID;
   name: string;
   picture: string;
   email?: string;
 }
 
-interface IPost {
+export interface IPost {
   id: ID;
   title: string;
-  // tags: string[];
+  tags: string[];
   imageUrl?: string;
   location: {
     coordinates: [number, number];
@@ -30,10 +30,10 @@ interface IPost {
 //
 // GET /posts?sort=recent&location=54.23434,4.123: [{ id: sfls, comments: [{}]}]
 // GET /posts/:postId/comments
-// 
+//
 // GET /users/:userId
 
-interface IComment {
+export interface IComment {
   creatorId: ID;
   message: string;
   attachments?: string[];
@@ -55,9 +55,10 @@ const posts: IPost[] = [
     creatorType: "user",
     anomalyType: 'air',
     created: new Date("2020-11-26"),
+    tags: ['PM10', 'CO2'],
     location: {
       coordinates: [0, 0],
-      street: "Rijswikseweg",
+      street: "Rijswijkseweg",
       city: "The Hague",
       province: "South-Holland",
     },
@@ -70,6 +71,29 @@ const posts: IPost[] = [
           {
             creatorId: "3",
             message: "Yes! I could not go for my run!",
+            created: new Date(),
+          },
+          {
+            creatorId: "3",
+            message: "FAKE NEWS !!",
+            created: new Date(),
+          },
+        ],
+      },
+      {
+        creatorId: "3",
+        message: "picture.png",
+        attachments: ['picture.png'],
+        created: new Date(),
+      },
+      {
+        creatorId: "3",
+        created: new Date(),
+        message: "Volker wessels dumped a huge amount of granulite in to the sea which is toxic but the government doesn't care apparently. We need to start a revolution.",
+        comments: [
+          {
+            creatorId: "3",
+            message: "This is not relevant, but still true",
             created: new Date(),
           },
         ],
