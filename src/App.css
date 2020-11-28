@@ -1,0 +1,106 @@
+
+#root {
+  width: 500px;
+  margin: 0 auto;
+  padding: 10px 0px;
+  color: #797F94;
+  font-family: Montserrat;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+  #root {
+    width: 90vw;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 9px rgba(181, 198, 214, 0.25);
+  border-radius: 8px;
+  padding: 1em;
+}
+
+.card__location {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+ color: #ADB2BE;
+ font-size: 0.9em;
+ margin-bottom: 8px;
+  font-size: 0.6em;
+}
+
+.card__location img {
+  margin-right: 13px;
+}
+
+.card__notification {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #EF7290;
+  font-size: 0.8em;
+}
+
+
+.card__notification img {
+  margin-right: 8px;
+}
+
+.card__time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #ADB2BE;
+  font-size: 0.6em;
+}
+
+.card__time img {
+  margin-right: 4px;
+}
+
+.card__actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1em;
+}
+
+.card__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 0.8em;
+}
+
+.card__button {
+  font-size: 0.8em;
+  padding: 0.6em 1em;
+  border-radius: 5px;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.card__button1 {
+  cursor: pointer;
+  background: #EA85AA;
+  box-shadow: 0px 2px 6px #F3BBCF;
+  margin-right: 4px;
+}
+.card__button1:hover {
+  box-shadow: 0px 2px 6px hsla(339, 70%, 74%, 1);
+}
+
+.card__button2 {
+  background: #6AE6C8;
+  box-shadow: 0px 2px 8px #ACEEDE;
+}
+
+.card__button2:hover {
+  box-shadow: 0px 2px 6px hsla(165, 66%, 70%, 1);
+}
+
