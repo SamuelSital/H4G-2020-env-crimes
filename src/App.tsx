@@ -103,7 +103,7 @@ const App = (props: any) => {
         comments: 3,
       },
     ]);
-  })
+  }, []);
 
   return (<Wrapper>
     <div className="header">
