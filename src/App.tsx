@@ -85,35 +85,89 @@ const Card = ({ text, time, comments, location }: Notification) => (
 //   </Wrapper>
 // );
 
+interface Education {
+  text: string;
+  time: string;
+}
+
+
+
+const Education = ({ text, time }: Education) => (
+  <div className="h-card">
+    <div className="scw-overlay" />
+    <div className="h-card__text">{text}</div>
+    <div className="h-card__time">{time}</div>
+  </div>
+);
+
 const App = (props: any) => {
   const [items, setItems] = useState<Notification[]>([])
+  const [eductionItems, setEducationItems] = useState<Education[]>([])
 
   useEffect(() => {
     setItems([
       {
         text: "Increase in air polution detected",
         time: "10 min ago",
-        location: 'Rotterdam 10KM',
+        location: 'Rotterdam Nord 10KM',
         comments: 10,
       },
       {
-        text: "Nuclear expliosion detected in your backyard",
+        text: "Nuclear explosion detected in your backyard",
         time: "18:34",
-        location: 'Rotterdam 10KM',
+        location: 'Rotterdam 2KM',
         comments: 3,
       },
     ]);
+
+    setEducationItems([
+      {
+        text: "5 tips to become a nija in investigation",
+        time: "5 hours ago",
+      },
+      {
+        text: "3 biggest pollutors and their consequences",
+        time: "5 hours ago",
+      },
+      {
+        text: "3 biggest pollutors and their consequences",
+        time: "5 hours ago",
+      },
+      {
+        text: "3 biggest pollutors and their consequences",
+        time: "5 hours ago",
+      },
+      {
+        text: "3 biggest pollutors and their consequences",
+        time: "5 hours ago",
+      },
+      {
+        text: "3 biggest pollutors and their consequences",
+        time: "5 hours ago",
+      },
+    ])
   }, []);
 
   return (<Wrapper>
     <div className="header">
-      <span className="title">Last alerts</span>
+      <span className="title">You are brilliant!</span>
+    </div>
 
+    <div className="scrolling-wrapper">
+      {eductionItems.map(educationItem => (
+        <Education text={educationItem.text} time={educationItem.time} />
+      ))}
+    </div>
+    {/* ik kan niet pushen naar main :( */}
+
+    <div className="header">
+      <span className="title">Last alerts</span>
       <div className="map-button">
-        <span>Go on the map</span>
         <img src={MapIcon} alt="" />
+        <span>Go on the map</span>
       </div>
     </div>
+
     {items.map(item => (
       <Card text={item.text} time={item.time} location={item.location} comments={item.comments} />
     ))}
