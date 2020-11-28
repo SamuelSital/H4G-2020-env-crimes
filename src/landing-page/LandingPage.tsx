@@ -6,7 +6,6 @@ import LocationIcon from '../icons/location.svg';
 import TimeIcon from '../icons/time.svg';
 import MapIcon from '../icons/map.svg';
 import CommentsIcon from '../icons/comments.svg';
-import ActionIcon from '../icons/action.svg';
 import NotificationIcon from '../icons/notification.svg';
 import AnalyticsIcon from '../icons/analytics.svg';
 
@@ -15,7 +14,6 @@ import { useHistory, Link } from 'react-router-dom';
 import SignalNewCrimeButton from './SignalNewCrime';
 
 import styled from "styled-components";
-import { create } from "domain";
 
 const Wrapper = styled.div`
   display: flex;
