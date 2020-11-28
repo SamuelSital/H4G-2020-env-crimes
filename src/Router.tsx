@@ -7,23 +7,11 @@ import {
 } from "react-router-dom";
 import Discussion from "./discussion";
 import App from "./App";
+import MapView from "./MapView";
 
 const Router = () => (
   <BrowserRouter>
     <div>
-      {/* <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/users">Users</Link>
-          </li>
-        </ul>
-      </nav> */}
 
       {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -42,11 +30,13 @@ const Router = () => (
   </BrowserRouter>
 );
 
-const MapView = () => <p>Placeholder</p>
 const Home = () => <div>
   
   <App />
-  [Placeholder] <Link to="/anomaly/test">Go to dummy anomaly</Link>
+  [Placeholder]
+  <Link to="/anomaly/test">Go to dummy anomaly</Link>
+  <br />
+  <Link to="/map">Go to Map</Link>
 </div>
 
 export default Router;

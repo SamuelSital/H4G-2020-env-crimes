@@ -15,7 +15,7 @@ const Tag = styled(Box) <{ $color: string }>`
   background-color: ${(x) => x.$color};
 `;
 
-const photoSrc = ({ name, picture }: { name: string; picture?: string }) => picture || `https://eu.ui-avatars.com/api/?name=${name}&background=random`
+const photoSrc = ({ name, picture }: { name: string; picture?: string }) => picture || `https://eu.ui-avatars.com/api/?name=${name}&background=random&rounded=true`
 
 
 const CommentThread = ({ comment }: { comment: CommentWithCreator }) => (

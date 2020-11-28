@@ -10,6 +10,7 @@ interface IUser {
 interface IPost {
   id: ID;
   title: string;
+  // tags: string[];
   imageUrl?: string;
   location: {
     coordinates: [number, number];
@@ -23,6 +24,14 @@ interface IPost {
   created: Date;
   comments: IComment[];
 }
+
+//
+// /sensors/:sensorId/?start=DDMMYYYTTTT&end=DDMMYYYTTTT
+//
+// GET /posts?sort=recent&location=54.23434,4.123: [{ id: sfls, comments: [{}]}]
+// GET /posts/:postId/comments
+// 
+// GET /users/:userId
 
 interface IComment {
   creatorId: ID;
