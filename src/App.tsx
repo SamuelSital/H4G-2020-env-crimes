@@ -123,7 +123,7 @@ const App = (props: any) => {
     setEducationItems([
       {
         text: "5 tips to become a nija in investigation",
-        time: "5 hours ago",
+        time: "4 hours ago",
       },
       {
         text: "3 biggest pollutors and their consequences",
