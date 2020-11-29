@@ -1,1 +1,1 @@
-export const API_URL = 'https://67331e84-ae98-4225-86ba-4b60659f4e1a.mock.pstmn.io';
+export const API_URL = 'https://ec2-18-193-111-213.eu-central-1.compute.amazonaws.com';
