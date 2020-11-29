@@ -24,6 +24,21 @@
   align-items: center;
   justify-content: center;
   background-color: hsla(222, 22%, 91%, 1);
+  margin: 2px;
+}
+
+.post-username {
+  font-size: 0.7em;
+  font-weight: bold;
+  float: left;
+  color: gray;
+}
+
+.post-date {
+  font-size: 0.7em;
+  font-weight: bold;
+  float: right;
+  color: lightgray;
 }
 
 .post-message {
