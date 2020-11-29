@@ -1,19 +1,35 @@
 import React, { useEffect, useState } from "react";
-import './LandingPage.css';
-import UserNotificationIcon from '../icons/user-notification.svg';
-import WarningIcon from '../icons/warning.svg';
-import LocationIcon from '../icons/location.svg';
-import TimeIcon from '../icons/time.svg';
-import MapIcon from '../icons/map.svg';
-import CommentsIcon from '../icons/comments.svg';
-import NotificationIcon from '../icons/notification.svg';
+import { Link, useHistory } from 'react-router-dom';
+import styled from "styled-components";
+import { fetchPostOverview } from "../discussion/api-adapter";
+import { PostData } from "../discussion/mock-data";
+import ErrorBoundary from "../ErrorBoundary";
 import AnalyticsIcon from '../icons/analytics.svg';
-
-import { useHistory, Link } from 'react-router-dom';
-
+import CommentsIcon from '../icons/comments.svg';
+import LocationIcon from '../icons/location.svg';
+import MapIcon from '../icons/map.svg';
+import NotificationIcon from '../icons/notification.svg';
+import UserNotificationIcon from '../icons/user-notification.svg';
+import TimeIcon from '../icons/time.svg';
+import WarningIcon from '../icons/warning.svg';
+import './LandingPage.css';
 import SignalNewCrimeButton from './SignalNewCrime';
 
-import styled from "styled-components";
+function handleNotifySubscription() {
+  Notification.requestPermission(function(status) {
+    console.log('Notification permission status:', status);
+
+    if (Notification.permission === 'granted') {
+      navigator.serviceWorker.getRegistration().then((reg) => {
+        console.log(reg);
+        reg?.showNotification('Thanks for subscribing to Bootleg Hacker News!', {
+          // icon: '',
+          // vibrate: 99999
+        });
+      });
+    }
+  });
+}
 
 const Wrapper = styled.div`
   display: flex;
@@ -24,37 +40,27 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-interface Notification {
-  id: number;
-  text: string;
-  time: string;
-  comments: number;
-  location: string;
-  creatorType: 'sensor' | 'user';
-}
-
 interface EducationType {
   id: number;
   text: string;
   time: string;
 }
 
-
-const Card = ({ id, text, time, comments, location, creatorType }: Notification) => {
+const Card = ({ id, title, created, comments, location, creatorType }: PostData) => {
   return (
     <div className="card">
       <div className={`card__notification ${creatorType === "user" && 'card_user_notification'}`}>
         {creatorType === "sensor" ? <img alt="x" src={WarningIcon} /> : <img alt="" src={UserNotificationIcon} />}
-        <span>{text}</span>
+        <span>{title}</span>
       </div>
       <div className="card__info">
         <div className="pill">
           <img alt="" src={LocationIcon} />
-          {location}
+          {location.street}, {location.city}
         </div>
         <div className="pill">
           <img alt="" src={TimeIcon} />
-          <span>{time}</span>
+          <span>{created}</span>
         </div>
       </div>
       <div className="card__actions">
@@ -67,7 +73,7 @@ const Card = ({ id, text, time, comments, location, creatorType }: Notification)
           )}
           <Link to={`/posts/${id}/discuss`} className="card__button card__button1">
             <img src={CommentsIcon} alt="" />
-            {comments} comments
+            {comments.length} comments
           </Link>
         </div>
       </div>
@@ -82,21 +88,27 @@ const Education = ({ text, time }: EducationType) => (
   </div>
 );
 
-const App = (props: any) => {
-  const [items, setItems] = useState<Notification[]>([])
+const Posts = (props: any) => {
+  const [items, setItems] = useState<PostData[]>([])
   const [eductionItems, setEducationItems] = useState<EducationType[]>([])
   const history = useHistory();
 
+  const [error, setError] = useState<Error>();
   useEffect(() => {
-    setItems([
-      { id: 1, text: "Increase in air polution detected", time: "10 min ago", location: 'Rotterdam Nord 10KM', comments: 10, creatorType: 'sensor' },
-      { id: 7, text: "Saw something suspicious", time: "15:00", location: "Rotterdam", comments: 14, creatorType: "user" },
-      { id: 3, text: "Increase in air polution detected", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'sensor' },
-      { id: 4, text: "Increase in air polution detected", time: "14:29", location: 'Rotterdam 1KM', comments: 3, creatorType: 'sensor' },
-      { id: 5, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'user' },
-      { id: 6, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'user' },
-    ]);
+    fetchPostOverview()
+    .then(setItems)
+    .catch(setError);
+  }, []);
+    // setItems([
+    //   { id: 1, text: "Increase in air polution detected", time: "10 min ago", location: 'Rotterdam Nord 10KM', comments: 10, creatorType: 'sensor' },
+    //   { id: 7, text: "Saw something suspicious", time: "15:00", location: "Rotterdam", comments: 14, creatorType: "user" },
+    //   { id: 3, text: "Increase in air polution detected", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'sensor' },
+    //   { id: 4, text: "Increase in air polution detected", time: "14:29", location: 'Rotterdam 1KM', comments: 3, creatorType: 'sensor' },
+    //   { id: 5, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'user' },
+    //   { id: 6, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'user' },
+    // ]);
 
+  useEffect(() => {
     setEducationItems([
       { id: 1, text: "5 tips to become a nija in investigation", time: "4 hours ago", },
       { id: 2, text: "3 biggest pollutors and their consequences", time: "5 hours ago", },
@@ -128,18 +140,22 @@ const App = (props: any) => {
         <img src={MapIcon} alt="" />
         <span>Map</span>
       </div>
-      <div className="map-button">
+      <div className="map-button" onClick={handleNotifySubscription}>
         <img src={NotificationIcon} alt="" />
         <span>Get notified</span>
       </div>
     </div>
 
     <div className="notifications-wrapper">
-      {items.map(item => (
-        <Card key={item.id} {...item} />
-      ))}
+      {items.length ? items.map(item => (
+        <ErrorBoundary key={item.id}><Card {...item} /></ErrorBoundary>
+      ))
+        : error
+          ? <pre>Something went wrong :( <br /> {error.toString() || { unknown: true }}</pre>
+          : <p>Loading...</p>
+      }
     </div>
   </Wrapper>)
 };
 
-export default App;
+export default Posts;

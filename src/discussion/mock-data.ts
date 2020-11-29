@@ -7,10 +7,20 @@ export interface IUser {
   email?: string;
 }
 
+interface ISensorDataComponent {
+  alert: boolean;
+  data: {
+    timestamp: string;
+    value: number;
+  },
+  max: number;
+  unit: string;
+}
+
 export interface IPost {
   id: ID;
   title: string;
-  tags: string[];
+  tags?: string[];
   imageUrl?: string;
   location: {
     coordinates: [number, number];
@@ -23,6 +33,9 @@ export interface IPost {
   anomalyType: 'air' | 'water' | 'soil';
   created: Date;
   comments: IComment[];
+  data?: {
+    components: { [key: string]: ISensorDataComponent }
+  }
 }
 
 //
@@ -35,7 +48,7 @@ export interface IPost {
 
 export interface IComment {
   creatorId: ID;
-  message: string;
+  text: string;
   attachments?: string[];
   comments?: IComment[];
   created: Date;
@@ -66,34 +79,34 @@ const posts: IPost[] = [
       {
         creatorId: "2",
         created: new Date(),
-        message: "It was very smokey last night as well",
+        text: "It was very smokey last night as well",
         comments: [
           {
             creatorId: "3",
-            message: "Yes! I could not go for my run!",
+            text: "Yes! I could not go for my run!",
             created: new Date(),
           },
           {
             creatorId: "3",
-            message: "FAKE NEWS !!",
+            text: "FAKE NEWS !!",
             created: new Date(),
           },
         ],
       },
       {
         creatorId: "3",
-        message: "picture.png",
+        text: "picture.png",
         attachments: ['picture.png'],
         created: new Date(),
       },
       {
         creatorId: "3",
         created: new Date(),
-        message: "I agree! I have created an online petition for this incidence",
+        text: "I agree! I have created an online petition for this incidence",
         comments: [
           {
             creatorId: "3",
-            message: "Good job!",
+            text: "Good job!",
             created: new Date(),
           },
         ],
@@ -108,18 +121,21 @@ export interface CommentWithCreator extends IComment {
 };
 
 const findCreator = (id: ID) => users.find((u) => u.id === id)!;
-function unifyComment(comment: IComment): CommentWithCreator {
+
+export function unifyComment(comment: IComment, users: IUser[]): CommentWithCreator {
   return ({
     ...comment,
     creator: findCreator(comment.creatorId),
-    comments: comment.comments?.map(unifyComment) || [],
-  }); // HACK
+    comments: comment.comments?.map(u => unifyComment(u, users)) || [],
+  });
 }
 
-const mockData = posts.map((p) => ({
+export type PostData = IPost & { comments: CommentWithCreator[], creator: IUser };
+
+const mockData: PostData[] = posts.map((p) => ({
   ...p,
   creator: findCreator(p.creatorId),
-  comments: p.comments.map(unifyComment),
+  comments: p.comments.map(u => unifyComment(u, users)),
 }));
 
 export default mockData;
