@@ -3,7 +3,7 @@ type ID = string;
 export interface IUser {
   id: ID;
   name: string;
-  picture: string;
+  icon: string;
   email?: string;
 }
 
@@ -55,9 +55,9 @@ export interface IComment {
 }
 
 const users: IUser[] = [
-  { id: "1", name: "Samuel Sital", picture: "" },
-  { id: "2", name: "Remi van der Laan", picture: "" },
-  { id: "3", name: "Gwen Lohard", picture: "" },
+  { id: "1", name: "Samuel Sital", icon: "" },
+  { id: "2", name: "Remi van der Laan", icon: "" },
+  { id: "3", name: "Gwen Lohard", icon: "" },
 ];
 
 const posts: IPost[] = [
@@ -120,12 +120,13 @@ export interface CommentWithCreator extends IComment {
   comments: CommentWithCreator[];
 };
 
-const findCreator = (id: ID) => users.find((u) => u.id === id)!;
+export const findCreator = (id: ID, users: IUser[]) => users.find((u) => u.id === id)
+  || { id, name: `Sensor ${id}`, icon: '' };
 
 export function unifyComment(comment: IComment, users: IUser[]): CommentWithCreator {
   return ({
     ...comment,
-    creator: findCreator(comment.creatorId),
+    creator: findCreator(comment.creatorId, users),
     comments: comment.comments?.map(u => unifyComment(u, users)) || [],
   });
 }
@@ -134,7 +135,7 @@ export type PostData = IPost & { comments: CommentWithCreator[], creator: IUser 
 
 const mockData: PostData[] = posts.map((p) => ({
   ...p,
-  creator: findCreator(p.creatorId),
+  creator: findCreator(p.creatorId, users),
   comments: p.comments.map(u => unifyComment(u, users)),
 }));
 

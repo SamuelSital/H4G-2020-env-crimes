@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { API_URL } from "./config";
 import { useParams, useHistory } from "react-router-dom";
 import { fetchDiscussionData } from "./discussion/api-adapter";
 import { PostData } from "./discussion/mock-data";

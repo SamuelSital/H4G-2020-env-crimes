@@ -1,5 +1,5 @@
 import { API_URL } from "../config";
-import { IUser, IPost, PostData, unifyComment } from "./mock-data";
+import { IUser, IPost, PostData, unifyComment, findCreator, IComment } from "./mock-data";
 
 export async function fetchDiscussionData(id: string): Promise<PostData> {
   const userData: { data: IUser[] } = await (await fetch(`${API_URL}/users`)).json();
@@ -9,8 +9,7 @@ export async function fetchDiscussionData(id: string): Promise<PostData> {
 
   return {
     ...post,
-    creator: userData.data.find(u => u.id === post.creatorId)
-      || { id: post.creatorId, name: `Sensor ${post.creatorId}`, picture: '' },
+    creator: findCreator(post.creatorId, userData.data),
     comments: post.comments.map(c => unifyComment(c, userData.data)),
   }
 }
@@ -22,8 +21,11 @@ export async function fetchPostOverview(): Promise<PostData[]> {
 
   return postData.data.map(post => ({
     ...post,
-    creator: userData.data.find(u => u.id === post.creatorId)
-      || { id: post.creatorId, name: `Sensor ${post.creatorId}`, picture: '' },
+    creator: findCreator(post.creatorId, userData.data),
     comments: post.comments.map(c => unifyComment(c, userData.data)),
   }));
+}
+
+export function countComments(comments: IComment[]): number {
+  return comments.length + comments.reduce((sum, comment) => sum + countComments(comment.comments || []), 0);
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from 'react-router-dom';
 import styled from "styled-components";
-import { fetchPostOverview } from "../discussion/api-adapter";
+import { fetchPostOverview, countComments } from "../discussion/api-adapter";
 import { PostData } from "../discussion/mock-data";
 import ErrorBoundary from "../ErrorBoundary";
 import AnalyticsIcon from '../icons/analytics.svg';
@@ -73,7 +73,7 @@ const Card = ({ id, title, created, comments, location, creatorType }: PostData)
           )}
           <Link to={`/posts/${id}/discuss`} className="card__button card__button1">
             <img src={CommentsIcon} alt="" />
-            {comments.length} comments
+            {countComments(comments)} comments
           </Link>
         </div>
       </div>
@@ -111,11 +111,11 @@ const Posts = (props: any) => {
   useEffect(() => {
     setEducationItems([
       { id: 1, text: "5 tips to become a nija in investigation", time: "4 hours ago", },
-      { id: 2, text: "3 biggest pollutors and their consequences", time: "5 hours ago", },
-      { id: 3, text: "3 biggest pollutors and their consequences", time: "5 hours ago", },
-      { id: 4, text: "3 biggest pollutors and their consequences", time: "5 hours ago", },
-      { id: 5, text: "3 biggest pollutors and their consequences", time: "5 hours ago", },
-      { id: 6, text: "3 biggest pollutors and their consequences", time: "5 hours ago", },
+      { id: 2, text: "How water pollution may be affecting the groundwater table", time: "3 days ago", },
+      { id: 3, text: "EU2020 reports how air pollution is causing a spike in breathing problems", time: "1 week ago", },
+      { id: 4, text: "Learn how to make you own environmental sensor with the Raspberry Pi", time: "2 weeks ago", },
+      { id: 5, text: "How this street in Rotterdam is fighting Tanker degassing", time: "1 month ago", },
+      { id: 6, text: "3 biggest pollutors and their consequences", time: "3 months ago", },
     ])
   }, []);
 

@@ -1,25 +1,27 @@
 // import React from "react";
 // import { Box, Card, Flex } from "rebass";
 // import styled from "styled-components";
-import { IComment, IPost, PostData } from "./mock-data";
-import './header.css';
-import './anomaly.css';
-import './thread.css';
-import './input.css';
-
 import React, { useEffect, useState } from 'react';
-
-import SendIcon from '../icons/send.svg';
+import { useHistory, useParams } from 'react-router-dom';
+import styled from "styled-components";
 import AttachmentIcon from '../icons/attachment.svg';
-import PictureIcon from '../icons/picture.svg';
-import DownloadIcon from '../icons/download.svg';
 import BackButtonIcon from '../icons/backbutton.svg';
+import DownloadIcon from '../icons/download.svg';
+import PictureIcon from '../icons/picture.svg';
+import SendIcon from '../icons/send.svg';
 import ShareIcon from '../icons/share.svg';
 import UserIcon from '../icons/user.svg';
 import WarningIcon from '../icons/warning.svg';
-import { useHistory, useParams } from 'react-router-dom';
-import styled from "styled-components";
+import './anomaly.css';
 import { fetchDiscussionData } from "./api-adapter";
+import './header.css';
+import './input.css';
+import { CommentWithCreator, IPost, PostData, IUser } from "./mock-data";
+import './thread.css';
+import { Flex, Box } from 'rebass';
+import Linkify from 'react-linkify';
+
+
 
 // const photoSrc = ({ name, picture }: { name: string; picture?: string }) => picture || `https://eu.ui-avatars.com/api/?name=${name}&background=random`
 
@@ -37,7 +39,7 @@ const Header = () => {
   );
 };
 
-const Anomaly = ({ post }: { post: IPost }) => {
+const Anomaly = ({ post }: { post: IPost & { creator: IUser} }) => {
   return (
     <div className="anomaly">
       <div className="anom-icon">
@@ -55,20 +57,28 @@ const Anomaly = ({ post }: { post: IPost }) => {
         {post.imageUrl && <a href={post.imageUrl} target="_blank" rel="noopener noreferrer">
           <img src={post.imageUrl} alt={post.title} height="100" />
         </a>}
+        <Flex>
+          <Box className="post-username" width={1/2}>{post.creator.name}</Box>
+          <Box className="post-date" width={1/2}>{post.created}</Box>
+        </Flex>
       </div>
     </div>
   );
 };
 
-const Comment = ({ comment }: { comment: IComment }) => {
+const Comment = ({ comment }: { comment: CommentWithCreator }) => {
   return (<>
     <div className="thread-grid">
       <div className="post-icon">
-        <img src={UserIcon} alt="" />
+        <img src={comment.creator.icon || UserIcon} alt="" width={36} />
       </div>
       {!comment.attachments ? (
         <div className="post-message">
-          {comment.text}
+          <Flex>
+            <Box className="post-username" width={1/2}>{comment.creator.name}</Box>
+            <Box className="post-date" width={1/2}>{comment.created}</Box>
+          </Flex>
+          <Box width={1} mt={2}><Linkify>{comment.text}</Linkify></Box>
         </div>
       ) :
         (
@@ -98,7 +108,7 @@ const Comment = ({ comment }: { comment: IComment }) => {
   </>)
 }
 
-const Thread = ({ comments }: { comments: IComment[] }) => {
+const Thread = ({ comments }: { comments: CommentWithCreator[] }) => {
   return (
     <div className="thread">
       {comments.map((comment, i) => (
@@ -139,7 +149,7 @@ const CommunityThread = () => {
       <Header />
       {data ? <>
         <Anomaly post={data} />
-        <Thread comments={data.comments as IComment[]} />
+        <Thread comments={data.comments} />
       </>
         : error
           ? <pre>Something went wrong :( <br /> {error.toString() || { unknown: true }}</pre>
