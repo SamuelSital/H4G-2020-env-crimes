@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import BackButtonIcon from '../icons/backbutton.svg';
-import { API_URL } from './config'
+// import { API_URL } from './config'
 import { Line } from 'react-chartjs-2';
 import styled from 'styled-components';
 
@@ -59,19 +59,19 @@ const options = {
   }
 }
 
-const graphData = [
-  { "timestamp": "2020-11-29 05:00:00.000000", "value": 450 },
-  { "timestamp": "2020-11-29 06:00:00.000000", "value": 480 },
-  { "timestamp": "2020-11-29 07:00:00.000000", "value": 499 },
-  { "timestamp": "2020-11-29 08:00:00.000000", "value": 520 },
-  { "timestamp": "2020-11-29 09:00:00.000000", "value": 535 },
-  { "timestamp": "2020-11-29 10:00:00.000000", "value": 540 },
-  { "timestamp": "2020-11-29 11:00:00.000000", "value": 540 },
-  { "timestamp": "2020-11-29 12:00:00.000000", "value": 540 },
-  { "timestamp": "2020-11-29 13:00:00.000000", "value": 480 },
-  { "timestamp": "2020-11-29 14:00:00.000000", "value": 420 },
-  { "timestamp": "2020-11-29 15:00:00.000000", "value": 460 }
-];
+// const graphData = [
+//   { "timestamp": "2020-11-29 05:00:00.000000", "value": 450 },
+//   { "timestamp": "2020-11-29 06:00:00.000000", "value": 480 },
+//   { "timestamp": "2020-11-29 07:00:00.000000", "value": 499 },
+//   { "timestamp": "2020-11-29 08:00:00.000000", "value": 520 },
+//   { "timestamp": "2020-11-29 09:00:00.000000", "value": 535 },
+//   { "timestamp": "2020-11-29 10:00:00.000000", "value": 540 },
+//   { "timestamp": "2020-11-29 11:00:00.000000", "value": 540 },
+//   { "timestamp": "2020-11-29 12:00:00.000000", "value": 540 },
+//   { "timestamp": "2020-11-29 13:00:00.000000", "value": 480 },
+//   { "timestamp": "2020-11-29 14:00:00.000000", "value": 420 },
+//   { "timestamp": "2020-11-29 15:00:00.000000", "value": 460 }
+// ];
 
 export interface TimeSerieEntry {
   timestamp: string;
@@ -124,31 +124,31 @@ const GraphCard = (props: { data: TimeSerieEntry[] }) => {
     //   setChartData(customData);
     //   setLoading(false);
     // }, 3000);
-    const fetchData = async () => {
-      try {
-        const res = await fetch(`${API_URL}/posts`);
-        const dada = await res.json();
-        const data1 = dada.data[0].data.components.Temp.data;
-        // const data1 = graphData;
-        const v = mapToTimeseries(data1);
-        const data = {
-          datasets: [
-            {
-              label: 'EC µs/cm',
-              data: v,
-              fill: false,
-              borderColor: 'hsl(340deg, 60%, 60%)',
-              pointBackgroundColor: 'hsl(340deg, 60%, 60%)',
-              pointRadius: 0,
-            },
-          ],
-        }
-        setChartData(customData(data));
-        setLoading(false);
-      } catch (e) {
-        console.error(e);
-      }
-    }
+    // const fetchData = async () => {
+    //   try {
+    //     const res = await fetch(`${API_URL}/posts`);
+    //     const dada = await res.json();
+    //     const data1 = dada.data[0].data.components.Temp.data;
+    //     // const data1 = graphData;
+    //     const v = mapToTimeseries(data1);
+    //     const data = {
+    //       datasets: [
+    //         {
+    //           label: 'EC µs/cm',
+    //           data: v,
+    //           fill: false,
+    //           borderColor: 'hsl(340deg, 60%, 60%)',
+    //           pointBackgroundColor: 'hsl(340deg, 60%, 60%)',
+    //           pointRadius: 0,
+    //         },
+    //       ],
+    //     }
+    //     setChartData(customData(data));
+    //     setLoading(false);
+    //   } catch (e) {
+    //     console.error(e);
+    //   }
+    // }
     const v = mapToTimeseries(props.data);
     const data = {
       datasets: [
@@ -166,7 +166,7 @@ const GraphCard = (props: { data: TimeSerieEntry[] }) => {
     setLoading(false);
 
     // fetchData();
-  }, []);
+  }, [props.data]);
 
   return (
     <Container>
