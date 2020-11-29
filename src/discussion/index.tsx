@@ -91,9 +91,7 @@ const Comment = ({ comment }: { comment: IComment }) => {
 
     {/* TODO: Nested comments.. I had that working at some poing?! */}
     {comment.comments?.map(subComment => (
-      <div className="thread-grid-comments" key={subComment.text + subComment.creatorId}>
-        {/* Grid fill empty div */}
-        <div></div>
+      <div className="subcomments" key={subComment.text + subComment.creatorId}>
         <Comment comment={subComment} />
       </div>
     ))}

@@ -23,8 +23,8 @@ const StyledMapContainer = styled(MapContainer) <{ $height: number }>`
   height: ${x => x.$height}px;
 `;
 
-function UserLocationMarker() {
-  const [position, setPosition] = useState<LatLng | null>(null)
+function UserLocationMarker({location}: { location?: LatLng}) {
+  const [position, setPosition] = useState<LatLng | null>(location || null)
   const map = useMapEvents({
     locationfound(e) {
       setPosition(e.latlng)
@@ -34,7 +34,7 @@ function UserLocationMarker() {
   });
 
   // Find the user location on mount, then pan to it using the useMapEvents
-  useEffect(() => void map.locate(), [map]);
+  useEffect(() => { if (!position)map.locate() }, [map]);
 
   return position === null ? null : (
     <Marker position={position}>
@@ -62,7 +62,7 @@ export const anomalies: IAnomaly[] = [
 ];
 export const sensors: ISensor[] = [];
 
-const defaultLocation: LatLng = new LatLng(51.505, -0.09);
+const defaultLocation: LatLng = new LatLng(52.4541656,4.5960981); // random residence in IJmuiden
 const MapView = () => {
 
 
@@ -102,7 +102,8 @@ const MapView = () => {
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
 
-        <UserLocationMarker />
+        {/* NOTE: passing the location in here fixes the location - the actual user location will not be used */}
+        <UserLocationMarker location={location} />
 
         {items.map(a => (
           <Marker

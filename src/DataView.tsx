@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { API_URL } from "./config";
 import { useParams } from "react-router-dom";
-
-interface ISensorData {
-  id: string;
-}
+import { fetchDiscussionData } from "./discussion/api-adapter";
+import { PostData } from "./discussion/mock-data";
 
 const DataView = () => {
   const { id } = useParams<{ id: string }>();
-  const [data, setData] = useState<ISensorData>();
+  const [data, setData] = useState<PostData>();
 
   useEffect(() => {
-    fetch(`${API_URL}/posts/${id}`)
-      .then((data) => data.json())
-      .then((data: ISensorData) => setData(data))
+    fetchDiscussionData(id)
+      .then(setData)
       .catch(err => alert('Something went wrong :(\n' + err.toString()));
     // eslint-disable-next-line
   }, []);
+
   console.log(data);
 
   return (
