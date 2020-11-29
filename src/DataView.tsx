@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { API_URL } from "./config";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchDiscussionData } from "./discussion/api-adapter";
 import { PostData } from "./discussion/mock-data";
