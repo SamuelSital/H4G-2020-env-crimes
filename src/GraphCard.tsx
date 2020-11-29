@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import BackButtonIcon from '../icons/backbutton.svg';
+import { API_URL } from './config'
 import { Line } from 'react-chartjs-2';
 import styled from 'styled-components';
 
@@ -26,7 +27,7 @@ const options = {
       time: {
         displayFormats: {
           minute: 'HH:MM',
-          hour: 'HH:MM'
+          hour: 'HH:mm'
         }
       }
     }],
@@ -114,7 +115,7 @@ const Container = styled.div`
   box-shadow: 0px 4px 9px rgba(181, 198, 214, 0.25);
 `;
 
-const GraphView = () => {
+const GraphCard = (props: object) => {
   const [loading, setLoading] = useState(true);
   const [chartData, setChartData] = useState<object | null>(null);
 
@@ -125,9 +126,10 @@ const GraphView = () => {
     // }, 3000);
     const fetchData = async () => {
       try {
-        const res = await fetch('/posts');
-        // const dada = await res.json();
-        const data1 = graphData; //dada.data[0].data.components.EC.data;
+        const res = await fetch(`${API_URL}/posts`);
+        const dada = await res.json();
+        const data1 = dada.data[0].data.components.Temp.data;
+        // const data1 = graphData;
         const v = mapToTimeseries(data1);
         const data = {
           datasets: [
@@ -160,4 +162,4 @@ const GraphView = () => {
   );
 };
 
-export default GraphView;
+export default GraphCard;
