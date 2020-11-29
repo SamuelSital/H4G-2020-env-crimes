@@ -15,6 +15,22 @@ import WarningIcon from '../icons/warning.svg';
 import './LandingPage.css';
 import SignalNewCrimeButton from './SignalNewCrime';
 
+function handleNotifySubscription() {
+  Notification.requestPermission(function(status) {
+    console.log('Notification permission status:', status);
+
+    if (Notification.permission === 'granted') {
+      navigator.serviceWorker.getRegistration().then((reg) => {
+        console.log(reg);
+        reg?.showNotification('Thanks for subscribing to Bootleg Hacker News!', {
+          // icon: '',
+          // vibrate: 99999
+        });
+      });
+    }
+  });
+}
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -124,7 +140,7 @@ const Posts = (props: any) => {
         <img src={MapIcon} alt="" />
         <span>Map</span>
       </div>
-      <div className="map-button">
+      <div className="map-button" onClick={handleNotifySubscription}>
         <img src={NotificationIcon} alt="" />
         <span>Get notified</span>
       </div>

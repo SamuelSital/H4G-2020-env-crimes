@@ -52,6 +52,9 @@ const Anomaly = ({ post }: { post: IPost }) => {
             <div key={tag} className="anom-tag">{tag}</div>
           )}
         </div>
+        {post.imageUrl && <a href={post.imageUrl} target="_blank" rel="noopener noreferrer">
+          <img src={post.imageUrl} alt={post.title} height="100" />
+        </a>}
       </div>
     </div>
   );
@@ -73,14 +76,23 @@ const Thread = ({ comments }: { comments: IComment[] }) => {
             ) :
               (
                 <div className="post-attachment">
-                  <img src={PictureIcon} alt="" />
-                  {comment.attachments[0]}
-                  <img className="download-icon" src={DownloadIcon} alt="" />
+                  {comment.attachments.map(url =>
+                    <a href={url} target="_blank" rel="noopener noreferrer">
+                      {['jpg', 'jpeg', 'png'].some(ext => url.endsWith(ext)) ?
+                        <img src={url} alt={url} height="100" />
+                        : <><img src={PictureIcon} alt="" />
+                          {url}
+                          <img className="download-icon" src={DownloadIcon} alt="" />
+                        </>
+                      }
+                    </a>
+                  )}
                 </div>
-              )}
+              )
+            }
           </div>
 
-{/* TODO: Nested comments.. I had that working at some poing?! */}
+          {/* TODO: Nested comments.. I had that working at some poing?! */}
           {comment.comments && comment.comments.map(subComment => (
             <div className="thread-grid-comments" key={subComment.text}>
               <div />
@@ -119,8 +131,8 @@ const CommunityThread = () => {
   const [error, setError] = useState<Error>();
   useEffect(() => {
     fetchDiscussionData(id)
-    .then(setData)
-    .catch(setError);
+      .then(setData)
+      .catch(setError);
     // eslint-disable-next-line
   }, []);
 
@@ -131,9 +143,9 @@ const CommunityThread = () => {
         <Anomaly post={data} />
         <Thread comments={data.comments as IComment[]} />
       </>
-      : error
-        ? <pre>Something went wrong :( <br /> {error.toString() || { unknown: true }}</pre>
-        : <p>Loading...</p>}
+        : error
+          ? <pre>Something went wrong :( <br /> {error.toString() || { unknown: true }}</pre>
+          : <p>Loading...</p>}
       <Input />
     </Container >
   );
