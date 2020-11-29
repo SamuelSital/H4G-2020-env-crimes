@@ -1,4 +1,4 @@
-import React, { useCallback, useState, ReactNode, useEffect } from "react";
+import React, { useCallback, useState, ReactNode } from "react";
 import PlusIcon from '../icons/plus.svg';
 import './SignalNewCrime.css';
 import styled from "styled-components";
@@ -17,7 +17,7 @@ const StyledModal = styled.dialog`
   box-shadow:         0px -3px 5px 6px #ccc;
 `;
 
-const MyButton = styled.div<{ $color: string }>` 
+const MyButton = styled.div<{ $color: string }>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -112,11 +112,11 @@ const NewPostForm = () => {
           </Flex>
           <Box p={1}>
 
-          <Input
-            placeholder="Title"
-            type="Title"
+            <Input
+              placeholder="Title"
+              type="Title"
             />
-            </Box>
+          </Box>
         </Box>
       </Flex>
 
