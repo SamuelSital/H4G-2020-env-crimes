@@ -96,7 +96,6 @@ const DataView = () => {
         }
         setTitle(key);
         console.log(`alert ${components[key].alert}`)
-        // const key = componentsKeys[0];
         const rawData = components[key].data;
         if (rawData) {
           setGraphData(rawData);
