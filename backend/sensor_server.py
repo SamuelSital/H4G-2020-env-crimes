@@ -11,8 +11,8 @@ def hello():
     return "This is the data server!"
 
 
-@app.route('/posts', methods=["GET"])
-def posts(name):
+@app.route('/posts')
+def posts():
     return jsonify(data)
 
 
