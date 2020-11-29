@@ -6,7 +6,7 @@
       "creatorId": "SID1",
       "creatorType": "sensor",
       "anomalyType": "water",
-      "created": "2020-11-29 10:00:00.00000",
+      "created": "2020-11-29 10:00",
       "location": {
         "coordinates": [
             52.476762, 
@@ -24,47 +24,47 @@
             "unit": "µs/cm",
             "data": [
               {
-                "timestamp": "2020-11-29 05:00:00.000000",
+                "timestamp": "2020-11-29 05:000",
                 "value": 450
               },
               {
-                "timestamp": "2020-11-29 06:00:00.000000",
+                "timestamp": "2020-11-29 06:000",
                 "value": 480
               },
               {
-                "timestamp": "2020-11-29 07:00:00.000000",
+                "timestamp": "2020-11-29 07:000",
                 "value": 499
               },
               {
-                "timestamp": "2020-11-29 08:00:00.000000",
+                "timestamp": "2020-11-29 08:000",
                 "value": 520
               },
               {
-                "timestamp": "2020-11-29 09:00:00.000000",
+                "timestamp": "2020-11-29 09:000",
                 "value": 535
               },
               {
-                "timestamp": "2020-11-29 10:00:00.000000",
+                "timestamp": "2020-11-29 10:000",
                 "value": 540
               },
               {
-                "timestamp": "2020-11-29 11:00:00.000000",
+                "timestamp": "2020-11-29 11:000",
                 "value": 540
               },
               {
-                "timestamp": "2020-11-29 12:00:00.000000",
+                "timestamp": "2020-11-29 12:000",
                 "value": 540
               },
               {
-                "timestamp": "2020-11-29 13:00:00.000000",
+                "timestamp": "2020-11-29 13:000",
                 "value": 480
               },
               {
-                "timestamp": "2020-11-29 14:00:00.000000",
+                "timestamp": "2020-11-29 14:000",
                 "value": 420
               },
               {
-                "timestamp": "2020-11-29 15:00:00.000000",
+                "timestamp": "2020-11-29 15:000",
                 "value": 460
               }
             ]
@@ -75,47 +75,47 @@
             "unit": "°C",
             "data": [
               {
-                "timestamp": "2020-11-29 05:00:00.000000",
+                "timestamp": "2020-11-29 05:000",
                 "value": 10
               },
               {
-                "timestamp": "2020-11-29 06:00:00.000000",
+                "timestamp": "2020-11-29 06:000",
                 "value": 11
               },
               {
-                "timestamp": "2020-11-29 07:00:00.000000",
+                "timestamp": "2020-11-29 07:000",
                 "value": 11
               },
               {
-                "timestamp": "2020-11-29 08:00:00.000000",
+                "timestamp": "2020-11-29 08:000",
                 "value": 11
               },
               {
-                "timestamp": "2020-11-29 09:00:00.000000",
+                "timestamp": "2020-11-29 09:000",
                 "value": 11
               },
               {
-                "timestamp": "2020-11-29 10:00:00.000000",
+                "timestamp": "2020-11-29 10:000",
                 "value": 11
               },
               {
-                "timestamp": "2020-11-29 11:00:00.000000",
+                "timestamp": "2020-11-29 11:000",
                 "value": 12
               },
               {
-                "timestamp": "2020-11-29 12:00:00.000000",
+                "timestamp": "2020-11-29 12:000",
                 "value": 12
               },
               {
-                "timestamp": "2020-11-29 13:00:00.000000",
+                "timestamp": "2020-11-29 13:000",
                 "value": 12
               },
               {
-                "timestamp": "2020-11-29 14:00:00.000000",
+                "timestamp": "2020-11-29 14:000",
                 "value": 12
               },
               {
-                "timestamp": "2020-11-29 15:00:00.000000",
+                "timestamp": "2020-11-29 15:000",
                 "value": 12
               }
             ]
@@ -129,7 +129,7 @@
           "creatorId": 11,
           "creatorType": "user",
           "anomalyType": "",
-          "created": "2020-11-29 11:00:00.00000",
+          "created": "2020-11-29 11:00",
           "text": "I noticed some contruction activity late last night. Also generated a lot of noise which was very irritating!",
           "reported": 0,
           "comments": [
@@ -139,7 +139,7 @@
               "creatorId": 12,
               "creatorType": "user",
               "anomalyType": "",
-              "created": "2020-11-28 12:00:00.00000",
+              "created": "2020-11-28 12:00",
               "text": "Yes, they are building a small bridge there using 3D printing materials that may be harmful",
               "reported": 0
             }, 
@@ -149,7 +149,7 @@
               "creatorId": 13,
               "creatorType": "user",
               "anomalyType": "",
-              "created": "2020-11-28 12:33:00.00000",
+              "created": "2020-11-28 12:33",
               "text": "3D printing technology usually does not produce harmful waste. I could be wrong on this one though.",
               "reported": 0
             },
@@ -159,7 +159,7 @@
               "creatorId": 14,
               "creatorType": "user",
               "anomalyType": "",
-              "created": "2020-11-29 10:01:00.00000",
+              "created": "2020-11-29 10:01",
               "text": "I saw a boat today dumping a whole some material into the lake. Was kind of a dark material, can anyone tell what this is??",
               "attachments": ["https://i.imgur.com/BxVKokT.png"],
               "reported": 0
@@ -184,7 +184,7 @@
       "creatorId": "SID1",
       "creatorType": "sensor",
       "anomalyType": "air",
-      "created": "2020-11-27 17:00:00.00000",
+      "created": "2020-11-27 17:00",
       "location": {
         "coordinates": [
           52.459506, 
@@ -202,47 +202,47 @@
             "unit": "ug/m3",
             "data": [
               {
-                "timestamp": "2020-11-27 12:00:00.000000",
+                "timestamp": "2020-11-27 12:000",
                 "value": 20
               },
               {
-                "timestamp": "2020-11-27 13:00:00.000000",
+                "timestamp": "2020-11-27 13:000",
                 "value": 21
               },
               {
-                "timestamp": "2020-11-27 14:00:00.000000",
+                "timestamp": "2020-11-27 14:000",
                 "value": 22.5
               },
               {
-                "timestamp": "2020-11-27 15:00:00.000000",
+                "timestamp": "2020-11-27 15:000",
                 "value": 22.5
               },
               {
-                "timestamp": "2020-11-27 16:00:00.000000",
+                "timestamp": "2020-11-27 16:000",
                 "value": 26
               },
               {
-                "timestamp": "2020-11-27 17:00:00.000000",
+                "timestamp": "2020-11-27 17:000",
                 "value": 30
               },
               {
-                "timestamp": "2020-11-27 18:00:00.000000",
+                "timestamp": "2020-11-27 18:000",
                 "value": 50
               },
               {
-                "timestamp": "2020-11-27 19:00:00.000000",
+                "timestamp": "2020-11-27 19:000",
                 "value": 45
               },
               {
-                "timestamp": "2020-11-27 20:00:00.000000",
+                "timestamp": "2020-11-27 20:000",
                 "value": 42
               },
               {
-                "timestamp": "2020-11-27 21:00:00.000000",
+                "timestamp": "2020-11-27 21:000",
                 "value": 40
               },
               {
-                "timestamp": "2020-11-27 22:00:00.000000",
+                "timestamp": "2020-11-27 22:000",
                 "value": 41
               }
             ]
@@ -253,47 +253,47 @@
             "unit": "ug/m3",
             "data": [
               {
-                "timestamp": "2020-11-27 12:00:00.000000",
+                "timestamp": "2020-11-27 12:000",
                 "value": 40
               },
               {
-                "timestamp": "2020-11-27 13:00:00.000000",
+                "timestamp": "2020-11-27 13:000",
                 "value": 42
               },
               {
-                "timestamp": "2020-11-27 14:00:00.000000",
+                "timestamp": "2020-11-27 14:000",
                 "value": 42
               },
               {
-                "timestamp": "2020-11-27 15:00:00.000000",
+                "timestamp": "2020-11-27 15:000",
                 "value": 42
               },
               {
-                "timestamp": "2020-11-27 16:00:00.000000",
+                "timestamp": "2020-11-27 16:000",
                 "value": 44
               },
               {
-                "timestamp": "2020-11-27 17:00:00.000000",
+                "timestamp": "2020-11-27 17:000",
                 "value": 44
               },
               {
-                "timestamp": "2020-11-27 18:00:00.000000",
+                "timestamp": "2020-11-27 18:000",
                 "value": 44
               },
               {
-                "timestamp": "2020-11-27 19:00:00.000000",
+                "timestamp": "2020-11-27 19:000",
                 "value": 45
               },
               {
-                "timestamp": "2020-11-27 20:00:00.000000",
+                "timestamp": "2020-11-27 20:000",
                 "value": 40
               },
               {
-                "timestamp": "2020-11-27 21:00:00.000000",
+                "timestamp": "2020-11-27 21:000",
                 "value": 40
               },
               {
-                "timestamp": "2020-11-27 22:00:00.000000",
+                "timestamp": "2020-11-27 22:000",
                 "value": 42
               }
             ]
@@ -304,47 +304,47 @@
             "unit": "ug/m3",
             "data": [
               {
-                "timestamp": "2020-11-27 12:00:00.000000",
+                "timestamp": "2020-11-27 12:000",
                 "value": 40
               },
               {
-                "timestamp": "2020-11-27 13:00:00.000000",
+                "timestamp": "2020-11-27 13:000",
                 "value": 45
               },
               {
-                "timestamp": "2020-11-27 14:00:00.000000",
+                "timestamp": "2020-11-27 14:000",
                 "value": 41
               },
               {
-                "timestamp": "2020-11-27 15:00:00.000000",
+                "timestamp": "2020-11-27 15:000",
                 "value": 41
               },
               {
-                "timestamp": "2020-11-27 16:00:00.000000",
+                "timestamp": "2020-11-27 16:000",
                 "value": 41
               },
               {
-                "timestamp": "2020-11-27 17:00:00.000000",
+                "timestamp": "2020-11-27 17:000",
                 "value": 49
               },
               {
-                "timestamp": "2020-11-27 18:00:00.000000",
+                "timestamp": "2020-11-27 18:000",
                 "value": 60
               },
               {
-                "timestamp": "2020-11-27 19:00:00.000000",
+                "timestamp": "2020-11-27 19:000",
                 "value": 55
               },
               {
-                "timestamp": "2020-11-27 20:00:00.000000",
+                "timestamp": "2020-11-27 20:000",
                 "value": 55
               },
               {
-                "timestamp": "2020-11-27 21:00:00.000000",
+                "timestamp": "2020-11-27 21:000",
                 "value": 52
               },
               {
-                "timestamp": "2020-11-27 22:00:00.000000",
+                "timestamp": "2020-11-27 22:000",
                 "value": 51
               }
             ]
@@ -358,7 +358,7 @@
           "creatorId": 2,
           "creatorType": "user",
           "anomalyType": "",
-          "created": "2020-11-28 10:00:00.00000",
+          "created": "2020-11-28 10:00",
           "text": "I agree! It was very smokey last evening when I came back",
           "reported": 0,
           "comments": [
@@ -368,7 +368,7 @@
               "creatorId": 3,
               "creatorType": "user",
               "anomalyType": "",
-              "created": "2020-11-28 12:00:00.00000",
+              "created": "2020-11-28 12:00",
               "text": "Yes, I could not go for my run!",
               "reported": 0
             }
@@ -380,7 +380,7 @@
           "creatorId": 4,
           "creatorType": "user",
           "anomalyType": "",
-          "created": "2020-11-28 14:00:00.00000",
+          "created": "2020-11-28 14:00",
           "text": "This issue has persisted for two days! Check the data here!",
           "reported": 0,
           "comments": [
@@ -390,7 +390,7 @@
               "creatorId": 2,
               "creatorType": "user",
               "anomalyType": "",
-              "created": "2020-11-28 18:00:00.00000",
+              "created": "2020-11-28 18:00",
               "text": "This occurrence marks the crossing of half the legally allowed breaches! We should report this to the authorities!",
               "reported": 0
             }
@@ -402,7 +402,7 @@
           "creatorId": 4,
           "creatorType": "user",
           "anomalyType": "",
-          "created": "2020-11-28 20:00:00.00000",
+          "created": "2020-11-28 20:00",
           "text": "This issue has persisted for two days! Check the data here!",
           "reported": 0,
           "comments": [
@@ -412,7 +412,7 @@
               "creatorId": 99,
               "creatorType": "user",
               "anomalyType": "",
-              "created": "2020-11-28 22:00:00.00000",
+              "created": "2020-11-28 22:00",
               "text": "Fake News!",
               "reported": 2
             }
@@ -426,7 +426,7 @@
       "creatorId": 1,
       "creatorType": "user",
       "anomalyType": "soil",
-      "created": "2020-11-24 13:00:00.00000",
+      "created": "2020-11-24 13:00",
       "location": {
         "coordinates": [
           52.477794,
@@ -448,7 +448,7 @@
           "creatorId": 3,
           "creatorType": "user",
           "anomalyType": "",
-          "created": "2020-11-25 15:00:00.00000",
+          "created": "2020-11-25 15:00",
           "text": "I noticed this as well! The smell was awful",
           "reported": 0,
           "comments": []
