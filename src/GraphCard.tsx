@@ -73,7 +73,7 @@ const graphData = [
   { "timestamp": "2020-11-29 15:00:00.000000", "value": 460 }
 ];
 
-interface TimeSerieEntry {
+export interface TimeSerieEntry {
   timestamp: string;
   value: number;
 }
@@ -115,7 +115,7 @@ const Container = styled.div`
   box-shadow: 0px 4px 9px rgba(181, 198, 214, 0.25);
 `;
 
-const GraphCard = (props: object) => {
+const GraphCard = (props: { data: TimeSerieEntry[] }) => {
   const [loading, setLoading] = useState(true);
   const [chartData, setChartData] = useState<object | null>(null);
 
@@ -149,8 +149,23 @@ const GraphCard = (props: object) => {
         console.error(e);
       }
     }
+    const v = mapToTimeseries(props.data);
+    const data = {
+      datasets: [
+        {
+          label: 'EC µs/cm',
+          data: v,
+          fill: false,
+          borderColor: 'hsl(340deg, 60%, 60%)',
+          pointBackgroundColor: 'hsl(340deg, 60%, 60%)',
+          pointRadius: 0,
+        },
+      ],
+    }
+    setChartData(customData(data));
+    setLoading(false);
 
-    fetchData();
+    // fetchData();
   }, []);
 
   return (

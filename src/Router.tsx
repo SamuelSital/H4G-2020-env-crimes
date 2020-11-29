@@ -17,9 +17,9 @@ const Router = () => (
       {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
       <Switch>
-        <Route path="/graph">
+        {/* <Route path="/graph">
           <GraphView />
-        </Route>
+        </Route> */}
         <Route path="/map">
           <MapView />
         </Route>

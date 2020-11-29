@@ -4,6 +4,11 @@
   justify-content: space-between;
 }
 
+.header__title2 {
+  color: #EF7290;
+  font-size: 0.8em;
+}
+
 .header__placeholder {
   display: block;
   width: 20px;
