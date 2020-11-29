@@ -8,7 +8,7 @@ import Discussion from "./discussion";
 import MapView from "./MapView";
 import LandingPage from "./landing-page/LandingPage";
 import DataView from "./DataView";
-import GraphView from './GraphCard';
+// import GraphView from './GraphCard';
 
 const Router = () => (
   <BrowserRouter>
