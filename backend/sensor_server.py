@@ -8,6 +8,7 @@ from flask_cors import CORS
 
 
 data = json.load(open(osp.join(osp.dirname(__file__), "data", "dummy_data1.json"), 'r'))
+users = json.load(open(osp.join(osp.dirname(__file__), "data", "users.json"), 'r'))
 
 app = Flask(__name__)
 CORS(app)
@@ -18,8 +19,7 @@ def hello():
 
 @app.route('/users')
 def users():
-    user = {"data":[{"id": "1", "data": "tst"}]}
-    return jsonify(user)
+    return jsonify(users)
 
 
 @app.route('/posts')

@@ -1,0 +1,34 @@
+{
+  "data": [
+      {
+          "id": 1
+          , "name": "Prerak Mody"
+          , "icon": "https://eu.ui-avatars.com/api/?name=PM&background=random&rounded=true"
+          , "verified": "True"
+      }
+      , {
+          "id": 2
+          , "name": "Samuel Sital"
+          , "icon": "https://eu.ui-avatars.com/api/?name=SS&background=random&rounded=true"
+      }
+      , {
+          "id": 3
+          , "name": "Remi"
+          , "icon": "https://eu.ui-avatars.com/api/?name=Remi&background=random&rounded=true"
+      }
+      , {
+          "id": 4
+          , "name": "Gwen"
+          , "icon": "https://eu.ui-avatars.com/api/?name=Gwen&background=random&rounded=true"
+      }
+      , {
+          "id": 5
+          , "name": "Ravi Autar"
+          , "icon": "https://eu.ui-avatars.com/api/?name=RA&background=random&rounded=true"
+      }, {
+          "id": 99
+          , "name": "Tonald Drump"
+          , "icon": "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/trump_president_avatar_male-256.png"
+      }
+  ]
+}
