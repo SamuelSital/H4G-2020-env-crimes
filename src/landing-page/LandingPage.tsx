@@ -16,7 +16,7 @@ import './LandingPage.css';
 import SignalNewCrimeButton from './SignalNewCrime';
 
 function handleNotifySubscription() {
-  Notification.requestPermission(function(status) {
+  Notification.requestPermission(function (status) {
     console.log('Notification permission status:', status);
 
     if (Notification.permission === 'granted') {
@@ -96,17 +96,17 @@ const Posts = (props: any) => {
   const [error, setError] = useState<Error>();
   useEffect(() => {
     fetchPostOverview()
-    .then(setItems)
-    .catch(setError);
+      .then(setItems)
+      .catch(setError);
   }, []);
-    // setItems([
-    //   { id: 1, text: "Increase in air polution detected", time: "10 min ago", location: 'Rotterdam Nord 10KM', comments: 10, creatorType: 'sensor' },
-    //   { id: 7, text: "Saw something suspicious", time: "15:00", location: "Rotterdam", comments: 14, creatorType: "user" },
-    //   { id: 3, text: "Increase in air polution detected", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'sensor' },
-    //   { id: 4, text: "Increase in air polution detected", time: "14:29", location: 'Rotterdam 1KM', comments: 3, creatorType: 'sensor' },
-    //   { id: 5, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'user' },
-    //   { id: 6, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'user' },
-    // ]);
+  // setItems([
+  //   { id: 1, text: "Increase in air polution detected", time: "10 min ago", location: 'Rotterdam Nord 10KM', comments: 10, creatorType: 'sensor' },
+  //   { id: 7, text: "Saw something suspicious", time: "15:00", location: "Rotterdam", comments: 14, creatorType: "user" },
+  //   { id: 3, text: "Increase in air polution detected", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'sensor' },
+  //   { id: 4, text: "Increase in air polution detected", time: "14:29", location: 'Rotterdam 1KM', comments: 3, creatorType: 'sensor' },
+  //   { id: 5, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'user' },
+  //   { id: 6, text: "Nuclear explosion detected in your backyard", time: "18:34", location: 'Rotterdam 2KM', comments: 3, creatorType: 'user' },
+  // ]);
 
   useEffect(() => {
     setEducationItems([

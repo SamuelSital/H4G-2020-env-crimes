@@ -8,6 +8,7 @@ import Discussion from "./discussion";
 import MapView from "./MapView";
 import LandingPage from "./landing-page/LandingPage";
 import DataView from "./DataView";
+// import GraphView from './GraphCard';
 
 const Router = () => (
   <BrowserRouter>
@@ -16,6 +17,9 @@ const Router = () => (
       {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
       <Switch>
+        {/* <Route path="/graph">
+          <GraphView />
+        </Route> */}
         <Route path="/map">
           <MapView />
         </Route>

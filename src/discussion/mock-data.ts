@@ -9,10 +9,10 @@ export interface IUser {
 
 interface ISensorDataComponent {
   alert: boolean;
-  data: {
+  data: [{
     timestamp: string;
     value: number;
-  },
+  }],
   max: number;
   unit: string;
 }
