@@ -15,7 +15,8 @@
 .anom-right {
   display: flex;
   flex-direction: column;
- margin-left: 8px;
+  margin-left: 8px;
+  width: 100%;
 }
 
 .anom-description {

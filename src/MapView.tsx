@@ -34,6 +34,7 @@ function UserLocationMarker({location}: { location?: LatLng}) {
   });
 
   // Find the user location on mount, then pan to it using the useMapEvents
+  // eslint-disable-next-line
   useEffect(() => { if (!position)map.locate() }, [map]);
 
   return position === null ? null : (

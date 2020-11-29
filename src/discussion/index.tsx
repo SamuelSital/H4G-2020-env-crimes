@@ -16,9 +16,10 @@ import './anomaly.css';
 import { fetchDiscussionData } from "./api-adapter";
 import './header.css';
 import './input.css';
-import { CommentWithCreator, IPost, PostData } from "./mock-data";
+import { CommentWithCreator, IPost, PostData, IUser } from "./mock-data";
 import './thread.css';
 import { Flex, Box } from 'rebass';
+import Linkify from 'react-linkify';
 
 
 
@@ -38,7 +39,7 @@ const Header = () => {
   );
 };
 
-const Anomaly = ({ post }: { post: IPost }) => {
+const Anomaly = ({ post }: { post: IPost & { creator: IUser} }) => {
   return (
     <div className="anomaly">
       <div className="anom-icon">
@@ -56,6 +57,10 @@ const Anomaly = ({ post }: { post: IPost }) => {
         {post.imageUrl && <a href={post.imageUrl} target="_blank" rel="noopener noreferrer">
           <img src={post.imageUrl} alt={post.title} height="100" />
         </a>}
+        <Flex>
+          <Box className="post-username" width={1/2}>{post.creator.name}</Box>
+          <Box className="post-date" width={1/2}>{post.created}</Box>
+        </Flex>
       </div>
     </div>
   );
@@ -73,7 +78,7 @@ const Comment = ({ comment }: { comment: CommentWithCreator }) => {
             <Box className="post-username" width={1/2}>{comment.creator.name}</Box>
             <Box className="post-date" width={1/2}>{comment.created}</Box>
           </Flex>
-          <Box width={1} mt={2}>{comment.text}</Box>
+          <Box width={1} mt={2}><Linkify>{comment.text}</Linkify></Box>
         </div>
       ) :
         (
