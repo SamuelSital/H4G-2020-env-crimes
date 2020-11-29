@@ -60,51 +60,51 @@ const Anomaly = ({ post }: { post: IPost }) => {
   );
 };
 
+const Comment = ({ comment }: { comment: IComment }) => {
+  return (<>
+    <div className="thread-grid">
+      <div className="post-icon">
+        <img src={UserIcon} alt="" />
+      </div>
+      {!comment.attachments ? (
+        <div className="post-message">
+          {comment.text}
+        </div>
+      ) :
+        (
+          <div className="post-attachment">
+            {comment.attachments.map(url =>
+              <a href={url} target="_blank" rel="noopener noreferrer">
+                {['jpg', 'jpeg', 'png'].some(ext => url.endsWith(ext)) ?
+                  <img src={url} alt={url} height="100" />
+                  : <><img src={PictureIcon} alt="" />
+                    {url}
+                    <img className="download-icon" src={DownloadIcon} alt="" />
+                  </>
+                }
+              </a>
+            )}
+          </div>
+        )
+      }
+    </div>
+
+    {/* TODO: Nested comments.. I had that working at some poing?! */}
+    {comment.comments?.map(subComment => (
+      <div className="thread-grid-comments" key={subComment.text + subComment.creatorId}>
+        {/* Grid fill empty div */}
+        <div></div>
+        <Comment comment={subComment} />
+      </div>
+    ))}
+  </>)
+}
+
 const Thread = ({ comments }: { comments: IComment[] }) => {
   return (
     <div className="thread">
       {comments.map((comment, i) => (
-        <div key={`comment-${i}`}>
-          <div className="thread-grid">
-            <div className="post-icon">
-              <img src={UserIcon} alt="" />
-            </div>
-            {!comment.attachments ? (
-              <div className="post-message">
-                {comment.text}
-              </div>
-            ) :
-              (
-                <div className="post-attachment">
-                  {comment.attachments.map(url =>
-                    <a href={url} target="_blank" rel="noopener noreferrer">
-                      {['jpg', 'jpeg', 'png'].some(ext => url.endsWith(ext)) ?
-                        <img src={url} alt={url} height="100" />
-                        : <><img src={PictureIcon} alt="" />
-                          {url}
-                          <img className="download-icon" src={DownloadIcon} alt="" />
-                        </>
-                      }
-                    </a>
-                  )}
-                </div>
-              )
-            }
-          </div>
-
-          {/* TODO: Nested comments.. I had that working at some poing?! */}
-          {comment.comments && comment.comments.map(subComment => (
-            <div className="thread-grid-comments" key={subComment.text}>
-              <div />
-              <div className="post-icon">
-                <img src={UserIcon} alt="" />
-              </div>
-              <div className="post-message">
-                {subComment.text}
-              </div>
-            </div>
-          ))}
-        </div>
+        <Comment key={`comment-${i}`} comment={comment} />
       ))}
     </div>
   );
