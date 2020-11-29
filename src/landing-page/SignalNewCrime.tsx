@@ -1,10 +1,10 @@
-import React, { useCallback, useState, ReactNode, useEffect } from "react";
+import { Input, Label, Radio } from "@rebass/forms";
+import React, { ReactNode, useCallback, useState } from "react";
+import { Box, Flex } from "rebass";
+import styled from "styled-components";
 import PlusIcon from '../icons/plus.svg';
 import './SignalNewCrime.css';
-import styled from "styled-components";
 
-import { Box, Flex } from "rebass";
-import { Input, Label, Radio } from "@rebass/forms";
 
 
 const StyledModal = styled.dialog`
