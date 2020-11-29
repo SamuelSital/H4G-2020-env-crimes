@@ -1,14 +1,25 @@
 import os.path as osp
 from flask import jsonify, Flask
 import json
+import os
+from flask_cors import CORS
+
+
+
 
 data = json.load(open(osp.join(osp.dirname(__file__), "data", "dummy_data1.json"), 'r'))
+users = json.load(open(osp.join(osp.dirname(__file__), "data", "users.json"), 'r'))
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def hello():
     return "This is the data server!"
+
+@app.route('/users')
+def users():
+    return jsonify(users)
 
 
 @app.route('/posts')
@@ -16,5 +27,7 @@ def posts():
     return jsonify(data)
 
 
+certificate_path = osp.join(os.environ['HOME'], 'cert')
 if __name__ == '__main__':
-    app.run()
+    context = (osp.join(certificate_path, 'cert.pem'), osp.join(certificate_path, 'key.pem'))#certificate and key files
+    app.run(host="0.0.0.0", ssl_context=context)

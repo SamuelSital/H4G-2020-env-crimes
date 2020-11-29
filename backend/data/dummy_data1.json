@@ -4,7 +4,7 @@
       "id": "W_EZ_EC_HIGH_4352",
       "title": "Increase in water pollution detected",
       "creatorId": "SID1",
-      "creatorType": "system",
+      "creatorType": "sensor",
       "anomalyType": "water",
       "created": "2020-11-29 10:00:00.00000",
       "location": {
@@ -13,7 +13,7 @@
             4.617720
         ],
         "street": "Mergelkade",
-        "city": "Ijmuiden",
+        "city": "IJmuiden",
         "province": "North-Holland"
       },
       "data": {
@@ -161,7 +161,7 @@
               "anomalyType": "",
               "created": "2020-11-29 10:01:00.00000",
               "text": "I saw a boat today dumping a whole some material into the lake. Was kind of a dark material, can anyone tell what this is??",
-              "attachments": ["https://imgur.com/a/HNAjhBg"],
+              "attachments": ["https://i.imgur.com/BxVKokT.png"],
               "reported": 0
             },
             {
@@ -182,7 +182,7 @@
       "id": "W_EZ_PM10_HIGH_4352",
       "title": "Increase in air pollution detected!",
       "creatorId": "SID1",
-      "creatorType": "system",
+      "creatorType": "sensor",
       "anomalyType": "air",
       "created": "2020-11-27 17:00:00.00000",
       "location": {
@@ -191,7 +191,7 @@
           4.639717
         ],
         "street": "Velserbeek",
-        "city": "Ijmuiden",
+        "city": "IJmuiden",
         "province": "North-Holland"
       },
       "data": {
@@ -436,7 +436,7 @@
         "city": "Beverwijk",
         "province": "North-Holland"
       },
-      "img_url": [
+      "imageUrl": [
         "http://www.ppnenvironmental.com/wp-content/uploads/2019/08/ILLEGAL-DUMPING.jpg"
       ],
       "data": {},
