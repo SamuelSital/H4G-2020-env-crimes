@@ -110,7 +110,7 @@ const Posts = (props: any) => {
 
   useEffect(() => {
     setEducationItems([
-      { id: 1, text: "5 tips to become a nija in investigation", time: "4 hours ago", },
+      { id: 1, text: "5 tips to become a environmental data ninja", time: "4 hours ago", },
       { id: 2, text: "How water pollution may be affecting the groundwater table", time: "3 days ago", },
       { id: 3, text: "EU2020 reports how air pollution is causing a spike in breathing problems", time: "1 week ago", },
       { id: 4, text: "Learn how to make you own environmental sensor with the Raspberry Pi", time: "2 weeks ago", },
@@ -123,7 +123,7 @@ const Posts = (props: any) => {
     <SignalNewCrimeButton />
     <div className="gradient-overlay" />
     <div className="header header1">
-      <span className="title">You are brilliant!</span>
+      <span className="title">Omgeving Radar™</span>
     </div>
 
     <div>
