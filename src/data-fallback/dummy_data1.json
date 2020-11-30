@@ -1,0 +1,459 @@
+{
+  "data": [
+    {
+      "id": "W_EZ_EC_HIGH_4352",
+      "title": "Increase in water pollution detected",
+      "creatorId": "SID1",
+      "creatorType": "sensor",
+      "anomalyType": "water",
+      "created": "2020-11-29 10:00",
+      "location": {
+        "coordinates": [
+            52.476762, 
+            4.617720
+        ],
+        "street": "Mergelkade",
+        "city": "IJmuiden",
+        "province": "North-Holland"
+      },
+      "data": {
+        "components": {
+          "EC": {
+            "max": 500,
+            "alert": true,
+            "unit": "µs/cm",
+            "data": [
+              {
+                "timestamp": "2020-11-29 05:000",
+                "value": 450
+              },
+              {
+                "timestamp": "2020-11-29 06:000",
+                "value": 480
+              },
+              {
+                "timestamp": "2020-11-29 07:000",
+                "value": 499
+              },
+              {
+                "timestamp": "2020-11-29 08:000",
+                "value": 520
+              },
+              {
+                "timestamp": "2020-11-29 09:000",
+                "value": 535
+              },
+              {
+                "timestamp": "2020-11-29 10:000",
+                "value": 540
+              },
+              {
+                "timestamp": "2020-11-29 11:000",
+                "value": 540
+              },
+              {
+                "timestamp": "2020-11-29 12:000",
+                "value": 540
+              },
+              {
+                "timestamp": "2020-11-29 13:000",
+                "value": 480
+              },
+              {
+                "timestamp": "2020-11-29 14:000",
+                "value": 420
+              },
+              {
+                "timestamp": "2020-11-29 15:000",
+                "value": 460
+              }
+            ]
+          },
+          "Temp": {
+            "max": 35,
+            "alert": false,
+            "unit": "°C",
+            "data": [
+              {
+                "timestamp": "2020-11-29 05:000",
+                "value": 10
+              },
+              {
+                "timestamp": "2020-11-29 06:000",
+                "value": 11
+              },
+              {
+                "timestamp": "2020-11-29 07:000",
+                "value": 11
+              },
+              {
+                "timestamp": "2020-11-29 08:000",
+                "value": 11
+              },
+              {
+                "timestamp": "2020-11-29 09:000",
+                "value": 11
+              },
+              {
+                "timestamp": "2020-11-29 10:000",
+                "value": 11
+              },
+              {
+                "timestamp": "2020-11-29 11:000",
+                "value": 12
+              },
+              {
+                "timestamp": "2020-11-29 12:000",
+                "value": 12
+              },
+              {
+                "timestamp": "2020-11-29 13:000",
+                "value": 12
+              },
+              {
+                "timestamp": "2020-11-29 14:000",
+                "value": 12
+              },
+              {
+                "timestamp": "2020-11-29 15:000",
+                "value": 12
+              }
+            ]
+          }
+        }
+      },
+      "comments": [
+        {
+          "id": "UC11",
+          "title": "",
+          "creatorId": 11,
+          "creatorType": "user",
+          "anomalyType": "",
+          "created": "2020-11-29 11:00",
+          "text": "I noticed some contruction activity late last night. Also generated a lot of noise which was very irritating!",
+          "reported": 0,
+          "comments": [
+            {
+              "id": "UC12",
+              "title": "",
+              "creatorId": 12,
+              "creatorType": "user",
+              "anomalyType": "",
+              "created": "2020-11-28 12:00",
+              "text": "Yes, they are building a small bridge there using 3D printing materials that may be harmful",
+              "reported": 0
+            }, 
+            {
+              "id": "UC13",
+              "title": "",
+              "creatorId": 13,
+              "creatorType": "user",
+              "anomalyType": "",
+              "created": "2020-11-28 12:33",
+              "text": "3D printing technology usually does not produce harmful waste. I could be wrong on this one though.",
+              "reported": 0
+            },
+            {
+              "id": "UC14",
+              "title": "",
+              "creatorId": 14,
+              "creatorType": "user",
+              "anomalyType": "",
+              "created": "2020-11-29 10:01",
+              "text": "I saw a boat today dumping a whole some material into the lake. Was kind of a dark material, can anyone tell what this is??",
+              "attachments": ["https://i.imgur.com/BxVKokT.png"],
+              "reported": 0
+            },
+            {
+              "id": "UC15",
+              "title": "",
+              "creatorId": 15,
+              "creatorType": "user",
+              "anomalyType": "",
+              "text": "That looks strikingly similar to the granulite that was being dumped previously this year near Rotterdam! https://bit.ly/36dzxbE",
+              "created": "2020-11-29 14:01:29.00000",
+              "reported": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W_EZ_PM10_HIGH_4352",
+      "title": "Increase in air pollution detected!",
+      "creatorId": "SID1",
+      "creatorType": "sensor",
+      "anomalyType": "air",
+      "created": "2020-11-27 17:00",
+      "location": {
+        "coordinates": [
+          52.459506, 
+          4.639717
+        ],
+        "street": "Velserbeek",
+        "city": "IJmuiden",
+        "province": "North-Holland"
+      },
+      "data": {
+        "components": {
+          "PM2.5": {
+            "max": 25,
+            "alert": true,
+            "unit": "ug/m3",
+            "data": [
+              {
+                "timestamp": "2020-11-27 12:000",
+                "value": 20
+              },
+              {
+                "timestamp": "2020-11-27 13:000",
+                "value": 21
+              },
+              {
+                "timestamp": "2020-11-27 14:000",
+                "value": 22.5
+              },
+              {
+                "timestamp": "2020-11-27 15:000",
+                "value": 22.5
+              },
+              {
+                "timestamp": "2020-11-27 16:000",
+                "value": 26
+              },
+              {
+                "timestamp": "2020-11-27 17:000",
+                "value": 30
+              },
+              {
+                "timestamp": "2020-11-27 18:000",
+                "value": 50
+              },
+              {
+                "timestamp": "2020-11-27 19:000",
+                "value": 45
+              },
+              {
+                "timestamp": "2020-11-27 20:000",
+                "value": 42
+              },
+              {
+                "timestamp": "2020-11-27 21:000",
+                "value": 40
+              },
+              {
+                "timestamp": "2020-11-27 22:000",
+                "value": 41
+              }
+            ]
+          },
+          "PM10": {
+            "max": 40,
+            "alert": false,
+            "unit": "ug/m3",
+            "data": [
+              {
+                "timestamp": "2020-11-27 12:000",
+                "value": 40
+              },
+              {
+                "timestamp": "2020-11-27 13:000",
+                "value": 42
+              },
+              {
+                "timestamp": "2020-11-27 14:000",
+                "value": 42
+              },
+              {
+                "timestamp": "2020-11-27 15:000",
+                "value": 42
+              },
+              {
+                "timestamp": "2020-11-27 16:000",
+                "value": 44
+              },
+              {
+                "timestamp": "2020-11-27 17:000",
+                "value": 44
+              },
+              {
+                "timestamp": "2020-11-27 18:000",
+                "value": 44
+              },
+              {
+                "timestamp": "2020-11-27 19:000",
+                "value": 45
+              },
+              {
+                "timestamp": "2020-11-27 20:000",
+                "value": 40
+              },
+              {
+                "timestamp": "2020-11-27 21:000",
+                "value": 40
+              },
+              {
+                "timestamp": "2020-11-27 22:000",
+                "value": 42
+              }
+            ]
+          },
+          "NO2": {
+            "max": 200,
+            "alert": false,
+            "unit": "ug/m3",
+            "data": [
+              {
+                "timestamp": "2020-11-27 12:000",
+                "value": 40
+              },
+              {
+                "timestamp": "2020-11-27 13:000",
+                "value": 45
+              },
+              {
+                "timestamp": "2020-11-27 14:000",
+                "value": 41
+              },
+              {
+                "timestamp": "2020-11-27 15:000",
+                "value": 41
+              },
+              {
+                "timestamp": "2020-11-27 16:000",
+                "value": 41
+              },
+              {
+                "timestamp": "2020-11-27 17:000",
+                "value": 49
+              },
+              {
+                "timestamp": "2020-11-27 18:000",
+                "value": 60
+              },
+              {
+                "timestamp": "2020-11-27 19:000",
+                "value": 55
+              },
+              {
+                "timestamp": "2020-11-27 20:000",
+                "value": 55
+              },
+              {
+                "timestamp": "2020-11-27 21:000",
+                "value": 52
+              },
+              {
+                "timestamp": "2020-11-27 22:000",
+                "value": 51
+              }
+            ]
+          }
+        }
+      },
+      "comments": [
+        {
+          "id": "UC21",
+          "title": "",
+          "creatorId": 2,
+          "creatorType": "user",
+          "anomalyType": "",
+          "created": "2020-11-28 10:00",
+          "text": "I agree! It was very smokey last evening when I came back",
+          "reported": 0,
+          "comments": [
+            {
+              "id": "UC22",
+              "title": "",
+              "creatorId": 3,
+              "creatorType": "user",
+              "anomalyType": "",
+              "created": "2020-11-28 12:00",
+              "text": "Yes, I could not go for my run!",
+              "reported": 0
+            }
+          ]
+        },
+        {
+          "id": "UC23",
+          "title": "",
+          "creatorId": 4,
+          "creatorType": "user",
+          "anomalyType": "",
+          "created": "2020-11-28 14:00",
+          "text": "This issue has persisted for two days! Check the data here!",
+          "reported": 0,
+          "comments": [
+            {
+              "id": "UC24",
+              "title": "",
+              "creatorId": 2,
+              "creatorType": "user",
+              "anomalyType": "",
+              "created": "2020-11-28 18:00",
+              "text": "This occurrence marks the crossing of half the legally allowed breaches! We should report this to the authorities!",
+              "reported": 0
+            }
+          ]
+        },
+        {
+          "id": "UC25",
+          "title": "",
+          "creatorId": 4,
+          "creatorType": "user",
+          "anomalyType": "",
+          "created": "2020-11-28 20:00",
+          "text": "This issue has persisted for two days! Check the data here!",
+          "reported": 0,
+          "comments": [
+            {
+              "id": "UC26",
+              "title": "",
+              "creatorId": 99,
+              "creatorType": "user",
+              "anomalyType": "",
+              "created": "2020-11-28 22:00",
+              "text": "Fake News!",
+              "reported": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "U_P1",
+      "title": "Illegal dumping in De Kil",
+      "creatorId": 1,
+      "creatorType": "user",
+      "anomalyType": "soil",
+      "created": "2020-11-24 13:00",
+      "location": {
+        "coordinates": [
+          52.477794,
+          4.695478
+        ],
+        "street": "De Kil",
+        "city": "Beverwijk",
+        "province": "North-Holland"
+      },
+      "imageUrl": [
+        "http://www.ppnenvironmental.com/wp-content/uploads/2019/08/ILLEGAL-DUMPING.jpg"
+      ],
+      "data": {},
+      "comments": [
+        {
+          "id": "UC7",
+          "type": "non-root",
+          "title": "",
+          "creatorId": 3,
+          "creatorType": "user",
+          "anomalyType": "",
+          "created": "2020-11-25 15:00",
+          "text": "I noticed this as well! The smell was awful",
+          "reported": 0,
+          "comments": []
+        }
+      ]
+    }
+  ]
+}
